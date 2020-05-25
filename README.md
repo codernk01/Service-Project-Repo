@@ -11,10 +11,10 @@ This is a repository for my project on service providers
  #the webpage is running at localhost:8080
 
 #INSTRUCTIONS :
-- cd version1
-- npm install (all the dependencies in package.json)
-- install mongodb server and start the server
-- node app.js
+ - cd version1
+ - npm install (all the dependencies in package.json)
+ - install mongodb server and start the server
+ - node app.js
 
 #installing mongodb server :
 
@@ -36,9 +36,3 @@ This is a repository for my project on service providers
 - click "attached database accounts" in azure section of vscode
 - click "attach database account" and select "mongodb api"
 - write "mongodb://127.0.0.1:27017"
-
-
-#STRUCTURE :
--views folder contain all the frontend files and folders
--app.js is the main backend file
--the webpage is running at localhost:8080
