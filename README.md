@@ -42,4 +42,3 @@ This is a repository for my project on service providers
 -views folder contain all the frontend files and folders
 -app.js is the main backend file
 -the webpage is running at localhost:8080
->>>>>>> Stashed changes
