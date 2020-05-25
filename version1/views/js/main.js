@@ -115,6 +115,7 @@
              }
          })
 
+
          // click outisde offcanvas
          $(document).mouseup(function(e) {
              var container = $(".site-mobile-menu");
