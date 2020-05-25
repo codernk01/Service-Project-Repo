@@ -5,6 +5,16 @@ var mongoose = require("mongoose");
 
 var app = express();
 
+mongoose.connect("mongodb://localhost/tudu", function(err,res){
+    if(err)
+    {
+        console.log("error");
+    }
+    else{
+        console.log("database running");
+    }
+});
+
 app.use(express.static("views"));
 app.set("view engine","ejs");
 //for home page
