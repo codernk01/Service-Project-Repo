@@ -39,6 +39,8 @@
 
 
 
+
+
  jQuery(document).ready(function($) {
 
      "use strict";
@@ -112,6 +114,7 @@
                  $this.addClass('active');
              }
          })
+
 
          // click outisde offcanvas
          $(document).mouseup(function(e) {
