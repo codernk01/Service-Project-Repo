@@ -154,12 +154,11 @@
     display: block;
     top: 50%;
     height: 32px;
-    background-image: url('../img/controls.png');
     cursor: pointer;
     position: absolute;
     z-index: 99;
     margin-top: -16px;
-    opacity: 0.5;
+    opacity: 0.8;
     -webkit-transition: opacity 0.35s linear 0s;
     transition: opacity 0.35s linear 0s;
 }
@@ -167,10 +166,14 @@
     opacity: 1;
 }
 .lSAction > .lSPrev {
+    color: #000;
+    font-size: 2rem;
     background-position: 0 0;
     left: 10px;
 }
 .lSAction > .lSNext {
+    color: #000;
+    font-size: 2rem;
     background-position: -32px 0;
     right: 10px;
 }
@@ -209,11 +212,15 @@
     margin-top: 0;
 }
 .lSSlideOuter.vertical .lSAction > .lSNext {
+    color: #000;
+    font-size: 2rem;
     background-position: 31px -31px;
     bottom: 10px;
     top: auto;
 }
 .lSSlideOuter.vertical .lSAction > .lSPrev {
+    color: #000;
+    font-size: 2rem;
     background-position: 0 -31px;
     bottom: auto;
     top: 10px;
