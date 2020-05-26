@@ -49,23 +49,32 @@ app.get("/register",function(req,res){
 
 app.post("/register",function(req,res){
     var newUser= new User({
-        username: req.body.firstname, 
+        username: req.body.username, 
         email: req.body.email, 
         lastname: req.body.lastname
         });
     User.register(newUser,req.body.password,function(err,user){
         if(err){
             console.log(err);
-            return res.redirect("register");
+            return res.render("register");
         }
         passport.authenticate("local")(req,res,function(){
-                res.redirect("index")
+            res.redirect("/")
             });
     });
     //res.send("SignUp");
 });
 
+app.get("/login",function(req,res){
+    res.render("login");
+})
 
+app.post("/login", passport.authenticate("local",
+    {
+        successRedirect: "/",
+        faliureRedirect: "/register"
+    }) ,function(req,res){
+});
 
 
 
