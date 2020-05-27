@@ -80,6 +80,15 @@
                     </nav>
                     <nav class="site-navigation text-right " id="right-nav" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                        <!--this segment is for register,login and logout-->
+                            <% if(!currentUser) { %>
+                                <a href="/register">REGISTER</a>
+                                <a href="/login">LOGIN</a>
+                            <% } else { %>
+                                <li>WELCOME <%= currentUser.firstname %></li>
+                                <a href="/logout">LOGOUT</a>
+                            <% } %>
+                        <!--.........-->
                             <li><a href="#blog-section" class="nav-link">Blog</a></li>
                             <li><a href="#contact-section" class="nav-link">Contact</a></li>
                         </ul>

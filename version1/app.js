@@ -38,9 +38,10 @@ app.use(bodyParser.json());
 
 
 //ROUTES
+var current=undefined;
 
 app.get("/",function(req,res){
-    res.render("index");
+    res.render("index",{currentUser: current});
 })
 
 app.get("/register",function(req,res){
@@ -50,7 +51,7 @@ app.get("/register",function(req,res){
 app.post("/register",function(req,res){
     var newUser= new User({
         username: req.body.username, 
-        email: req.body.email, 
+        firstname:req.body.firstname,
         lastname: req.body.lastname
         });
     User.register(newUser,req.body.password,function(err,user){
@@ -59,7 +60,8 @@ app.post("/register",function(req,res){
             return res.render("register");
         }
         passport.authenticate("local")(req,res,function(){
-            res.redirect("/")
+            current=req.user;
+            res.redirect("/");
             });
     });
 });
@@ -68,20 +70,15 @@ app.get("/login",function(req,res){
     res.render("login");
 });
 
-app.post("/login", passport.authenticate("local",
-    {
-        successRedirect : "/",
-        failureRedirect: "/register"
-    }) ,function(req,res){
-
+app.post("/login", passport.authenticate("local") ,function(req,res){
+        current=req.user;
+        res.redirect("/");
 });
-
 app.get("/logout",function(req,res){
     req.logout();
-    res.redirect("/login");
-});
-
-
+    current=undefined;
+    res.redirect("/");
+})
 
 app.listen(8080,function(){
     console.log("Running at localhost:8080");
