@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('#autoWidth').lightSlider({
+    $('.autoWidth').lightSlider({
         autoWidth:true,
-        loop:false,
+        loop:true,
         onSliderLoad: function() {
             $('.autoWidth').removeClass('cS-hidden');
-        }
-    });
-});
+        } 
+    });  
+  });
