@@ -48,10 +48,10 @@
 
             <div class="row align-center position-relative">
                 <div class="site-logo">
-                    <a href="index.html"><i class="fas fa-check-square"></i><span id="my-logo">TUDU</span></a>
+                    <a href="#"><a href="index.html"><i class="fas fa-check-square"></i><span id="my-logo">TUDU</span></a>
                 </div>
             </div>
-            <div class="row align-items-center position-relative" style="top:0.5rem;">
+            <div class="row align-items-center position-relative">
                 <div class="col-12">
                     <nav class="site-navigation text-left ml-auto " role="navigation">
 
@@ -82,11 +82,11 @@
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                         <!--this segment is for register,login and logout-->
                             <% if(!currentUser) { %>
-                                <a href="/register">REGISTER</a>
-                                <a href="/login">LOGIN</a>
+                                <a href="/register" class="nav-link">REGISTER</a>
+                                <a href="/login" class="nav-link">LOGIN</a>
                             <% } else { %>
                                 <li>WELCOME <%= currentUser.firstname %></li>
-                                <a href="/logout">LOGOUT</a>
+                                <a href="/logout" class="nav-link">LOGOUT</a>
                             <% } %>
                         <!--.........-->
                             <li><a href="#blog-section" class="nav-link">Blog</a></li>
