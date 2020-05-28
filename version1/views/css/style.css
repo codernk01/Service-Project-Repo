@@ -649,7 +649,6 @@ h5,
 .fa-check-square {
     font-size: 3rem;
 }
-
 .top-bar {
     border-bottom: 1px solid #e9ecef !important;
 }
@@ -681,7 +680,7 @@ h5,
 
 .site-navbar .site-logo {
     position: absolute;
-    font-size: 1.2rem;
+    font-size: 3rem;
     text-transform: uppercase;
     font-weight: 900;
     line-height: 0;
@@ -1247,24 +1246,10 @@ eeEasyStepsSectionBody .eeCell.eeRight {
     box-shadow: 0 8px 26px 0 rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-}
-
-.service1-div {
-    width: 490px;
-    height: 182px;
-    display: flex;
-    justify-content: center;
+    height: auto;
 }
 
 #service1-2 {
-    margin-left: 1rem;
-}
-
-.service2-div {
-    width: 490px;
-    height: 182px;
-    display: flex;
-    justify-content: center;
     margin-left: 1rem;
 }
 
@@ -1278,7 +1263,7 @@ eeEasyStepsSectionBody .eeCell.eeRight {
 
 .slider-body {
     width: 100%;
-    background-color: #283c63;
+    background-color: #ec823a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1288,10 +1273,9 @@ eeEasyStepsSectionBody .eeCell.eeRight {
 .slider-header {
     color: white;
     text-transform: uppercase;
-    font-family: 'Comic Neue', cursive;
     font-size: xx-large;
     width: 100%;
-    background-color: #283c63;
+    background-color: #ec823a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1299,7 +1283,7 @@ eeEasyStepsSectionBody .eeCell.eeRight {
 
 .slider-body-2 {
     width: 100%;
-    background-color: #470000;
+    background-color: #7c3c21;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1308,10 +1292,9 @@ eeEasyStepsSectionBody .eeCell.eeRight {
 .slider-header-2 {
     color: white;
     text-transform: uppercase;
-    font-family: 'Comic Neue', cursive;
     font-size: xx-large;
     width: 100%;
-    background-color: #470000;
+    background-color: #7c3c21;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1414,23 +1397,9 @@ eeEasyStepsSectionBody .eeCell.eeRight {
     padding-left: 0.6rem;
 }
 
-#ourservice-container {
-    background-color: #fff;
-    top: -3.8rem;
-    position: relative;
-    z-index: 2;
-    margin: 0 auto!important;
-    width: 75rem;
-    border-radius: 4px;
-    box-shadow: 0 8px 26px 0 rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    height: 235px;
-}
-
 .service1-div {
     width: 490px;
-    height: 182px;
+    height: 100%;
     display: flex;
     justify-content: center;
     margin-left: auto;
@@ -1438,7 +1407,7 @@ eeEasyStepsSectionBody .eeCell.eeRight {
 
 .service2-div {
     width: 490px;
-    height: 182px;
+    height: 100%;
     display: flex;
     justify-content: center;
     margin-left: 1rem;
@@ -1537,13 +1506,13 @@ nav>ul>li>a:hover::after {
 .sticky-wrapper .site-navbar {
     background-color: #2f3337;
     /* For browsers that do not support gradients */
-    background-image: linear-gradient(to top, #0a0f14, rgb(120, 123, 124));
     ;
 }
 
 .sticky-wrapper .site-navbar .site-logo a {
     text-align: center;
     color: #fff;
+    text-shadow: 2px 4px black;
 }
 
 .sticky-wrapper .site-navbar ul li a {
@@ -1556,8 +1525,7 @@ nav>ul>li>a:hover::after {
 
 .sticky-wrapper.is-sticky .site-navbar {
     background-color: #2f3337;
-    /* For browsers that do not support gradients */
-    background-image: linear-gradient(to top, #0a0f14, rgb(120, 123, 124));
+    /* For browsers that do not support gradients */    
     -webkit-box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.2);
     box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.2);
 }
@@ -1624,7 +1592,6 @@ nav>ul>li>a:hover::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
