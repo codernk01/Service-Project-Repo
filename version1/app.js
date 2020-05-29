@@ -4,6 +4,7 @@ var mongoose = require("mongoose");
 var passport = require("passport");
 var localStrategy = require("passport-local");
 var User = require("./models/user");
+var ServiceProvider = require("./models/serviceProvider");
 
 var app = express();
 
@@ -33,17 +34,21 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-//ROUTES
-var current=undefined;
+app.use(function(req,res,next){
+    res.locals.currentUser = req.user;
+    next();
+});
 
 app.get("/",function(req,res){
-    res.render("index",{currentUser: current});
+    res.render("index");
 })
 
+//User routes
 app.get("/register",function(req,res){
     res.render("register");
 })
@@ -60,7 +65,6 @@ app.post("/register",function(req,res){
             return res.render("register");
         }
         passport.authenticate("local")(req,res,function(){
-            current=req.user;
             res.redirect("/");
             });
     });
@@ -76,9 +80,10 @@ app.post("/login", passport.authenticate("local") ,function(req,res){
 });
 app.get("/logout",function(req,res){
     req.logout();
-    current=undefined;
     res.redirect("/");
 })
+
+//Service provider Routes
 
 app.listen(8080,function(){
     console.log("Running at localhost:8080");
