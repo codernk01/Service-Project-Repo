@@ -1,9 +1,7 @@
 var mongoose = require("mongoose");
 
 var serviceSchema = new mongoose.Schema({
-    appliance : String,
-    price : Number,
-
+    serv : String,
 });
 
 module.exports = mongoose.model("Service", serviceSchema);
