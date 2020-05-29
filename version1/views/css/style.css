@@ -1387,12 +1387,6 @@ nav ul li {
     list-style: none;
 }
 
-.container-section-row {
-    flex-direction: row;
-    display: flex;
-    margin: 1rem 0;
-    justify-content: center;
-}
 
 .site-mobile-menu .site-nav-wrap>li>ul>li {
     display: block;
