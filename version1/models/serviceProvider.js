@@ -1,18 +1,21 @@
 var mongoose = require("mongoose");
-// var service = require("./models/service");
-var category = require("./category");
+var Service = require("./service");
+var passportLocalMongoose = require("passport-local-mongoose");
 
 var serviceProviderSchema = new mongoose.Schema({
     firstname: String,
     lastname: String,
-    email: String,
-    phone_no: String,
-    cat :[
+    username: String,       //email
+    phone_no: Number,
+    address: String,
+    password: String,
+    servicesProviding :[
         {
         type : mongoose.Schema.Types.ObjectId,
-        ref : "category",
+        ref : "Service",
         }
     ],
 });
 
+serviceProviderSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model("ServiceProvider", serviceProviderSchema);
