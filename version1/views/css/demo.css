@@ -35,7 +35,7 @@ body {
 }
 
 /* BUTTON */
-a.button {
+a.click {
     position: absolute;
     left: 20px;
     top: 20px;
@@ -57,13 +57,13 @@ a.button {
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
-a.button:hover {
+a.click:hover {
     border-color: #2D515C;
     color: #fff;
     padding: 1.0rem 3.2rem;
 }
 @media only screen and (min-width: 22em) {
-    a.button {
+    a.click {
         padding: 1.0rem 2.8rem;
         font-size: 1.0rem;
     }
@@ -264,7 +264,7 @@ a.button:hover {
     font-family: inherit;
     color: #666;
 }
-.recovery form .button {
+.recovery form .click {
     margin: 1em 0;
     padding: .2em 3em;
     width: auto;
@@ -277,7 +277,7 @@ a.button:hover {
     border-radius: 0px;
     background: rgba(62,181,169,1) 0%;
 }
-.form-wrap form .button:hover {
+.form-wrap form .click:hover {
     background-color: #4FDA8C;
 }
 .recovery p.mssg {
@@ -616,7 +616,7 @@ input {
     font-family: inherit;
     color: #fff;
 }
-.form-wrap form .button {
+.form-wrap form .click {
     margin: 1em 0;
     padding: .2em 3em;
     width: auto;
@@ -635,7 +635,7 @@ input {
     -moz-box-shadow: 0px 0px 37px -9px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 37px -9px rgba(0,0,0,0.75);
 }
-.form-wrap form .button:hover {
+.form-wrap form .click:hover {
     background-color: #4FDA8C;
 }
 .form-wrap form .checkbox {
