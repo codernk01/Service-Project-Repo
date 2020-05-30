@@ -62,20 +62,21 @@ app.post("/register",function(req,res){
     User.register(newUser,req.body.password,function(err,user){
         if(err){
             console.log(err);
-            return res.render("register");
+            return res.render("login_register");
         }
         passport.authenticate("local")(req,res,function(){
+            //console.log(req.user);
             res.redirect("/");
             });
     });
 });
 
-app.get("/login",function(req,res){
-    res.render("login");
+app.get("/loginregister",function(req,res){
+   // console.log(req.user);
+    res.render("login_register");
 });
 
 app.post("/login", passport.authenticate("local") ,function(req,res){
-        current=req.user;
         res.redirect("/");
 });
 app.get("/logout",function(req,res){
