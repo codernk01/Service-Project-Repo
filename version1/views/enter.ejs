@@ -50,7 +50,7 @@
                         </div>
                         <div class="tabs-content">
                             <div id="login-tab-content" class="active">
-                                <form class="login-form" action="" method="post">
+                                <form class="login-form" action="/login" method="post">
                                     <input type="text" class="input" id="user_login" autocomplete="off" placeholder="Email or Username">
                                     <input type="password" class="input" id="user_pass" autocomplete="off" placeholder="Password">
                                     <input type="checkbox" class="checkbox" checked id="remember_me">
@@ -62,12 +62,12 @@
                                 </div>
                             </div>
                             <div id="signup-tab-content">
-                                <form class="signup-form" action="" method="post">
-                                    <input type="text" class="input" id="user_fname" autocomplete="off" placeholder="First Name">
-                                    <input type="text" class="input" id="user_lname" autocomplete="off" placeholder="Last Name">
-                                    <input type="email" class="input" id="user_email" autocomplete="off" placeholder="Email">
+                                <form class="signup-form" action="/register" method="post">
+                                    <input type="text" class="input" id="user_fname" autocomplete="off" name="firstname" placeholder="First Name">
+                                    <input type="text" class="input" id="user_lname" autocomplete="off" name="lastname" placeholder="Last Name">
+                                    <input type="email" class="input" id="user_email" autocomplete="off" name="username" placeholder="Email">
                                     <input type="text" class="input" id="user_name" autocomplete="off" placeholder="Username">
-                                    <input type="password" class="input" id="user_pass" autocomplete="off" placeholder="Password">
+                                    <input type="password" class="input" id="user_pass" autocomplete="off" name="password" placeholder="Password">
                                     <input type="submit" class="button" value="Sign Up">
                                 </form>
                                 <div class="help-action">
