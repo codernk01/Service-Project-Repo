@@ -64,16 +64,17 @@
                                 <a href="#about-section" class="nav-link">About Us</a>
                                 <ul class="dropdown arrow-top">
                                     <li><a href="#team-section" class="nav-link">Team</a></li>
-                                    <li><a href="#pricing-section" class="nav-link">Pricing</a></li>
+                                    <!--<li><a href="#pricing-section" class="nav-link">Pricing</a></li>-->
                                     <li><a href="#faq-section" class="nav-link">FAQ</a></li>
-                                    <li class="has-children">
+                                    <li><a href="#press-section" class="nav-link">PRESS</a></li>
+                                    <!--<li class="has-children">
                                         <a href="#">More Links</a>
                                         <ul class="dropdown">
                                             <li><a href="#">Menu One</a></li>
                                             <li><a href="#">Menu Two</a></li>
                                             <li><a href="#">Menu Three</a></li>
                                         </ul>
-                                    </li>
+                                    </li>-->
                                 </ul>
                             </li>
                         </ul>
@@ -83,20 +84,20 @@
                         <!--this segment is for register,login and logout-->
                             <% if(!currentUser) { %>
                                 <!-- <a href="/register" class="nav-link">REGISTER</a> -->
-                                <a href="/loginregister" class="nav-link">LOGIN/REGISTER</a>
+                                <li><a href="/loginregister" class="nav-link" style="color: #1eb980 !important;">LOGIN/REGISTER</a></li>
                             <% } else { %>
                                 <li>WELCOME <%= currentUser.firstname %></li>
                                 <a href="/logout" class="nav-link">LOGOUT</a>
                             <% } %>
                         <!--.........-->
-                            <li><a href="#blog-section" class="nav-link">Blog</a></li>
-                            <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                            <!--<li><a href="#blog-section" class="nav-link">Blog</a></li>-->
+                            <!--<li><a href="#contact-section" class="nav-link">Contact</a></li>-->
                         </ul>
                     </nav>
 
                 </div>
 
-                <div class="toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+                <div class="toggle-button d-inline-block d-lg-none" style="padding-top: 10px !important;"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black" ><span class="icon-menu h3"></span></a></div>
 
             </div>
 
@@ -840,12 +841,12 @@
                                     </div>
                                 </div>
                         -->
-                                <div class="row site-section" id="faq-section">
+                                <div class="row site-section" id="faq-section" >
                                     <div class="col-12 text-center" data-aos="fade">
                                         <h2 class="section-title text-primary">Frequently Ask Questions</h2>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" style="padding-left: 5% !important; padding-right: 5% !important;">
                                     <div class="col-lg-6">
 
                                         <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
@@ -1036,7 +1037,7 @@
                             </div>
                         </div>
                         -->
-
+                        <!--
                         <div class="site-section bg-light" id="contact-section">
                             <div class="container">
                                 <div class="row">
@@ -1085,6 +1086,7 @@
                                 </div>
                             </div>
                         </div>
+                        -->
 
 
                         <footer class="site-footer">
