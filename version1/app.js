@@ -30,9 +30,13 @@ app.use(require("express-session")({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new localStrategy(User.authenticate()));
+passport.use("local",new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+passport.use("provider-local",new localStrategy(ServiceProvider.authenticate()));
+passport.serializeUser(ServiceProvider.serializeUser());
+passport.deserializeUser(ServiceProvider.deserializeUser());
 
 //body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,9 +53,6 @@ app.get("/",function(req,res){
 })
 
 //User routes
-// app.get("/register",function(req,res){
-//     res.render("register");
-// })
 
 app.post("/register",function(req,res){
     var newUser= new User({
@@ -65,7 +66,8 @@ app.post("/register",function(req,res){
             return res.render("login_register");
         }
         passport.authenticate("local")(req,res,function(){
-            //console.log(req.user);
+            console.log("user ---------")
+            console.log(user);
             res.redirect("/");
             });
     });
@@ -77,6 +79,7 @@ app.get("/loginregister",function(req,res){
 });
 
 app.post("/login", passport.authenticate("local") ,function(req,res){
+        //console.log(req.user);
         res.redirect("/");
 });
 app.get("/logout",function(req,res){
@@ -85,6 +88,29 @@ app.get("/logout",function(req,res){
 })
 
 //Service provider Routes
+
+app.get("/providerloginregister",function(req,res){
+    res.render("provider_login_register");
+})
+
+app.post("/providerregister",function(req,res){
+    var newProvider= new ServiceProvider({
+        username: req.body.username, 
+        firstname:req.body.firstname,
+        lastname: req.body.lastname,
+        phone_no:req.body.phone_no,
+        address:req.body.address
+        });
+    ServiceProvider.register(newProvider,req.body.password,function(err,serviceprovider){
+        if(err){
+            console.log(err);
+            return res.render("provider_login_register");
+        }
+        passport.authenticate("provider-local")(req,res,function(){
+            res.render("serviceprovider");
+            });
+    });
+});
 
 app.listen(8080,function(){
     console.log("Running at localhost:8080");
