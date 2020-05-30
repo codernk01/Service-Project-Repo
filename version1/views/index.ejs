@@ -82,8 +82,8 @@
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                         <!--this segment is for register,login and logout-->
                             <% if(!currentUser) { %>
-                                <a href="/register" class="nav-link">REGISTER</a>
-                                <a href="/login" class="nav-link">LOGIN</a>
+                                <!-- <a href="/register" class="nav-link">REGISTER</a> -->
+                                <a href="/login" class="nav-link">LOGIN/REGISTER</a>
                             <% } else { %>
                                 <li>WELCOME <%= currentUser.firstname %></li>
                                 <a href="/logout" class="nav-link">LOGOUT</a>
