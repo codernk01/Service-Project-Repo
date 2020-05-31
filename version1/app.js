@@ -116,9 +116,23 @@ app.post("/providerregister",function(req,res){
 
 app.post("/providerlogin", passport.authenticate("provider-local") ,function(req,res){
     console.log(req.user);
-    res.render("editprofile",{provider:req.user});
+    console.log(req.user._id);
+    res.redirect("/provider/"+req.user._id+"/edit");
 });
 
+app.get("/provider/:id/edit" ,function(req,res){
+    console.log(req.params.id);
+    ServiceProvider.findById(req.params.id, function(err,foundProvider){
+    if(err)
+    {
+        console.log(err);
+    }
+    else{
+        console.log(foundProvider);
+        res.render("editprofile", {provider: foundProvider});
+    }
+    })
+});
 
 app.listen(8080,function(){
     console.log("Running at localhost:8080");
