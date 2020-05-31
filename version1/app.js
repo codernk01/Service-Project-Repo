@@ -5,12 +5,12 @@ var passport = require("passport");
 var localStrategy = require("passport-local");
 var User = require("./models/user");
 var ServiceProvider = require("./models/serviceProvider");
+var methodOverride = require("method-override");
 
 var app = express();
 
 mongoose.connect("mongodb://localhost/tudu", function(err,res){
-    if(err)
-    {
+    if(err){
         console.log("error");
     }
     else{
@@ -29,6 +29,7 @@ app.use(require("express-session")({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(methodOverride("_method"));
 
 passport.use("local",new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -82,6 +83,7 @@ app.post("/login", passport.authenticate("local") ,function(req,res){
         //console.log(req.user);
         res.redirect("/");
 });
+
 app.get("/logout",function(req,res){
     req.logout();
     res.redirect("/");
@@ -111,6 +113,12 @@ app.post("/providerregister",function(req,res){
             });
     });
 });
+
+app.post("/providerlogin", passport.authenticate("provider-local") ,function(req,res){
+    console.log(req.user);
+    res.render("editprofile",{provider:req.user});
+});
+
 
 app.listen(8080,function(){
     console.log("Running at localhost:8080");
