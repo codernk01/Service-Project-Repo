@@ -1655,7 +1655,7 @@ nav>ul>li>a:hover::after {
 }
 
 .site-section {
-    padding: 7rem 0;
+    padding: 3rem 0;
 }
 
 @media (max-width: 991.98px) {
