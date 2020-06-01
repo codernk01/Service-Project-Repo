@@ -129,7 +129,14 @@ app.get("/provider/:id/edit" ,function(req,res){
     }
     else{
         console.log(foundProvider);
+        if(foundProvider)
+        {
         res.render("editprofile", {provider: foundProvider});
+        }
+        else
+        {
+            res.redirect("/providerloginregister");
+        }
     }
     })
 });
