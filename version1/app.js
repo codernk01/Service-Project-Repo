@@ -163,6 +163,25 @@ app.get("/provider/:id/edit" ,function(req,res){
     })
 });
 
+app.put("/serviceprovider/:id",function(req,res){
+    ServiceProvider.findByIdAndUpdate(req.params.id,req.body.provider,function(err,updatedprovider){
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            if(updatedprovider)
+            {
+                res.redirect("/serviceprovider/"+updatedprovider._id);
+            }
+            else{
+                console.log("profile not updated");
+                res.redirect("serviceprovider/"+req.params.id);
+            }
+        }
+    })
+})
+
 app.listen(8080,function(){
     console.log("Running at localhost:8080");
 })
