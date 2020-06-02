@@ -7,6 +7,8 @@
 </head>
 <body>
     <h2>Welcome <%=currentUser.firstname %></h2>
+    <button><a href="/logout">LOGOUT</a></button>
+    
     <div>SERVICE PROVIDER PAGE</div>
     <div>
         <li>NAME : <%= currentUser.firstname %>  
@@ -14,11 +16,22 @@
         <li>PHONE NUMBER : <%= currentUser.phone_no%> </li>
         <li>EMAIL : <%=currentUser.username%></li>
         <li>ADDRESS : <%= currentUser.address %></li>
-        <button><a href="/provider/<%=currentUser._id%>/edit">UPDATE PROFILE</a><button></button>
+        <button><a href="/provider/<%=currentUser._id%>/edit">UPDATE PROFILE</a></button>
     </div>
-    <button><a>ADD SERVICES</a></button>
+    <button><a href="/provider/<%=currentUser._id%>/addservice">ADD SERVICES</a></button>
     <div>
         <h4>YOUR SERVICES</h4>
+        <% if(currentUser.servicesProviding) {%>
+            <% currentUser.servicesProviding.forEach(function(service){ %>
+                <ul>SERVICE TYPE : <%= service.type%></ul>
+                <ul>RELATED TO :<%= service.appliance%></ul>
+                <ul>DESCRIPTION :<%= service.description%></ul>
+                <ul>PRICE :<%= service.price%></ul>
+                <hr>
+            <% }) %>
+        <% }else { %>
+            <li>YOU DONT HAVE ANY SERVICES YET </li>
+        <% } %>
     </div>
 </body>
 </html>

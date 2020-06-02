@@ -83,7 +83,7 @@
                             <li><a href="#about-section" class="nav-link">About Us</a></li>
 
 
-                            <li><a href="#" class="nav-link">Serve with us</a></li>
+                            <li><a href="/providerloginregister" class="nav-link">Serve with us</a></li>
                         </ul>
                     </nav>
                     <nav class="site-navigation text-right " id="right-nav" role="navigation">
@@ -92,7 +92,7 @@
                             <% if(!currentUser) { %>
                                 <!-- <a href="/register" class="nav-link">REGISTER</a> -->
                                 <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important;">USER LOGIN/REGISTER</a></li>
-                                <li><a href="/providerloginregister" class="nav-link" style="color: #35eab6 !important;">SERVICE PROVIDER LOGIN/REGISTER</a></li>
+                                
                                 <% } else { %>
                                     <li>WELCOME,
                                         <%= currentUser.firstname %>

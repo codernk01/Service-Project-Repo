@@ -5,6 +5,7 @@ var passport = require("passport");
 var localStrategy = require("passport-local");
 var User = require("./models/user");
 var ServiceProvider = require("./models/serviceProvider");
+var Service =require("./models/service");
 var methodOverride = require("method-override");
 
 var app = express();
@@ -90,11 +91,11 @@ app.get("/logout",function(req,res){
 })
 
 //Service provider Routes
-
+//LOGIN-REGISTER
 app.get("/providerloginregister",function(req,res){
     res.render("provider_login_register");
 })
-
+//REGISTER
 app.post("/providerregister",function(req,res){
     var newProvider= new ServiceProvider({
         username: req.body.username, 
@@ -113,16 +114,16 @@ app.post("/providerregister",function(req,res){
             });
     });
 });
-
+//LOGIN
 app.post("/providerlogin", passport.authenticate("provider-local") ,function(req,res){
     //console.log(req.user);
-    res.redirect("/serviceprovider/"+req.user._id);
-    //res.redirect("/provider/"+req.user._id+"/edit");
+    res.redirect("/provider/"+req.user._id);
+    
 });
+//AFTER PROVIDER LOGIN-SERVICE PROVIDER PAGE
+app.get("/provider/:id",function(req,res){
 
-app.get("/serviceprovider/:id",function(req,res){
-
-    ServiceProvider.findById(req.params.id,function(err,foundProvider){
+    ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
         if(err)
         {
             console.log(err);
@@ -131,8 +132,7 @@ app.get("/serviceprovider/:id",function(req,res){
         else{
             if(foundProvider)
             {
-                console.log("provider");
-                console.log(foundProvider);
+                
                 res.render("serviceprovider",{currentUser : foundProvider});
             }
             else{
@@ -142,15 +142,16 @@ app.get("/serviceprovider/:id",function(req,res){
         }
     })
 })
+//SERVICE PROVIDER PROFILE UPDATE
 app.get("/provider/:id/edit" ,function(req,res){
-    console.log(req.params.id);
+    
     ServiceProvider.findById(req.params.id, function(err,foundProvider){
     if(err)
     {
         console.log(err);
     }
     else{
-        console.log(foundProvider);
+        //console.log(foundProvider);
         if(foundProvider)
         {
         res.render("editprofile", {provider: foundProvider});
@@ -162,8 +163,8 @@ app.get("/provider/:id/edit" ,function(req,res){
     }
     })
 });
-
-app.put("/serviceprovider/:id",function(req,res){
+//PUT REQUEST FOR PROFILE UPDATE
+app.put("/provider/:id",function(req,res){
     ServiceProvider.findByIdAndUpdate(req.params.id,req.body.provider,function(err,updatedprovider){
         if(err)
         {
@@ -172,11 +173,61 @@ app.put("/serviceprovider/:id",function(req,res){
         else{
             if(updatedprovider)
             {
-                res.redirect("/serviceprovider/"+updatedprovider._id);
+                res.redirect("/provider/"+updatedprovider._id);
             }
             else{
                 console.log("profile not updated");
-                res.redirect("serviceprovider/"+req.params.id);
+                res.redirect("/provider/"+req.params.id);
+            }
+        }
+    })
+})
+//ADD SERVICES FOR PROVIDER
+app.get("/provider/:id/addservice",function(req,res){
+    res.render("addservice",{providerId :req.params.id});
+})
+app.post("/provider/:id/addservice",function(req,res){
+    var service = new Service({
+        type : req.body.type,
+        appliance : req.body.appliance,
+        description : req.body.description,
+        price : req.body.price,
+    });
+    Service.create(service,function(err,addedservice){
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            if(addedservice)
+            {
+                //console.log(addedservice);
+                ServiceProvider.findById(req.params.id,function(err,foundprovider){
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                    else{
+                        if(foundprovider)
+                        {
+                            foundprovider.servicesProviding.push(addedservice);
+                            foundprovider.save();
+                            addedservice.provider.push(foundprovider);
+                            addedservice.save();
+                            console.log(foundprovider);
+                            console.log(addedservice);
+                            res.redirect("/provider/"+req.params.id);
+                        }
+                        else{
+                            console.log("provider not found");
+                            res.redirect("/provider/"+req.params.id);
+                        }
+                    }
+                })
+            }
+            else{
+                console.log("service not added");
+                res.redirect("/provider/"+req.params.id);
             }
         }
     })
