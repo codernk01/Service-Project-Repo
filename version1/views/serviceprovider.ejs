@@ -6,6 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div>SERVICE PROVIDER</div>
+    <h2>Welcome <%=currentUser.firstname %></h2>
+    <div>SERVICE PROVIDER PAGE</div>
+    <div>
+        <li>NAME : <%= currentUser.firstname %>  
+        </li>
+        <li>PHONE NUMBER : <%= currentUser.phone_no%> </li>
+        <li>EMAIL : <%=currentUser.username%></li>
+        <li>ADDRESS : <%= currentUser.address %></li>
+        <button><a href="/provider/<%=currentUser._id%>/edit">UPDATE PROFILE</a><button></button>
+    </div>
+    <a>ADD SERVICES</a>
+    <div>
+        <h4>YOUR SERVICES</h4>
+    </div>
 </body>
 </html>

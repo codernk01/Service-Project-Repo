@@ -89,7 +89,8 @@
                             <!--this segment is for register,login and logout-->
                             <% if(!currentUser) { %>
                                 <!-- <a href="/register" class="nav-link">REGISTER</a> -->
-                                <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important;">LOGIN/REGISTER</a></li>
+                                <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important;">USER LOGIN/REGISTER</a></li>
+                                <li><a href="/providerloginregister" class="nav-link" style="color: #35eab6 !important;">SERVICE PROVIDER LOGIN/REGISTER</a></li>
                                 <% } else { %>
                                     <li>WELCOME,
                                         <%= currentUser.firstname %>

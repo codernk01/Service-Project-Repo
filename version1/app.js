@@ -115,11 +115,33 @@ app.post("/providerregister",function(req,res){
 });
 
 app.post("/providerlogin", passport.authenticate("provider-local") ,function(req,res){
-    console.log(req.user);
-    console.log(req.user._id);
-    res.redirect("/provider/"+req.user._id+"/edit");
+    //console.log(req.user);
+    res.redirect("/serviceprovider/"+req.user._id);
+    //res.redirect("/provider/"+req.user._id+"/edit");
 });
 
+app.get("/serviceprovider/:id",function(req,res){
+
+    ServiceProvider.findById(req.params.id,function(err,foundProvider){
+        if(err)
+        {
+            console.log(err);
+
+        }
+        else{
+            if(foundProvider)
+            {
+                console.log("provider");
+                console.log(foundProvider);
+                res.render("serviceprovider",{currentUser : foundProvider});
+            }
+            else{
+                console.log("provider not found");
+                res.redirect("/providerloginregister");
+            }
+        }
+    })
+})
 app.get("/provider/:id/edit" ,function(req,res){
     console.log(req.params.id);
     ServiceProvider.findById(req.params.id, function(err,foundProvider){
