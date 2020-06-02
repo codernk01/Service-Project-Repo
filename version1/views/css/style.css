@@ -538,7 +538,9 @@ h5,
     position: relative;
     z-index: 1;
 }
-
+.tile img{
+    height: 12rem;
+}
 @media (max-width: 991.98px) {
     .img-md-fluid {
         max-width: 100%;
@@ -1282,9 +1284,6 @@ nav ul li {
     height: auto;
 }
 
-#service1-2 {
-    margin-left: 1rem;
-}
 
 #h2-row {
     margin: 0 auto;
@@ -1425,18 +1424,17 @@ nav ul li {
 }
 
 .service1-div {
-    width: 200px;
+    width: auto;
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
 .service2-div {
-    width: 200px;
+    width: auto;
     height: 100%;
     display: flex;
     justify-content: center;
-    margin-left: 1rem;
 }
 
 .tile {
@@ -1447,28 +1445,28 @@ nav ul li {
 
 #electrician {
     color: #000;
-    background-color: #FFE48E;
+    background-color: rgb(193, 196, 66);
     border-radius: 4px 4px 8px 8px;
     transition: ease-out 200ms;
 }
 
 #housekeeper {
     color: #000;
-    background-color: pink;
+    background-color: rgb(184, 61, 145);
     border-radius: 4px 4px 8px 8px;
     transition: ease-out 200ms;
 }
 
 #plumber {
     color: #000;
-    background-color: skyblue;
+    background-color: rgb(60, 142, 180);
     border-radius: 4px 4px 8px 8px;
     transition: ease-out 200ms;
 }
 
 #carpenter {
     color: #000;
-    background-color: lightcoral;
+    background-color: rgb(142, 184, 52);
     border-radius: 4px 4px 8px 8px;
     transition: ease-out 200ms;
 }
