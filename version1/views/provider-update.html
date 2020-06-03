@@ -8,26 +8,36 @@
 </head>
 <body>
     <h1 class="display1">Service Provider Profile</h1>
-    <div class="container">
-        <div class="leftbox">
-            <nav>
-                <a onclick="tabs(0)" class="tab active">
-                     <i class="fa fa-user"></i>
-                </a>
-                <a onclick="tabs(1)" class="tab">
-                    <i class="fa fa-credit-card"></i>
-                </a>
-                <a onclick="tabs(2)" class="tab">
-                    <i class="fa fa-tv"></i>
-                </a>
-                <a onclick="tabs(3)" class="tab">
-                    <i class="fa fa-tasks"></i>
-                </a>
-                <a onclick="tabs(4)" class="tab">
-                    <i class="fa fa-cog"></i>
-                </a>
-            </nav>
-        </div>
+    <div class="leftbox">
+        <nav>
+            <a onclick="tabs(0)" class="tab active">
+                 <i class="fa fa-user"></i>
+                 <span>Personal Info</span>
+                 
+            </a>
+            <a onclick="tabs(1)" class="tab">
+                <i class="fa fa-credit-card"></i>
+                <span>Payment Info</span>
+                
+            </a>
+            <a onclick="tabs(2)" class="tab">
+                <i class="fa fa-tv"></i>
+                <span>Subscription Info</span>
+                
+            </a>
+            <a onclick="tabs(3)" class="tab">
+                <i class="fa fa-tasks"></i>
+                <span> Privacy Settings</span>
+               
+            </a>
+            <a onclick="tabs(4)" class="tab">
+                <i class="fa fa-cog"></i>
+                <span>Account Settings</span>
+               
+            </a>
+        </nav>
+    </div>
+    
         <div class="rightbox">
             <div class="profile tabShow">
                 <h1>Personal Info</h1>
@@ -98,7 +108,7 @@
                 <button class="btn">update</button>
             </div>
         </div>
-    </div>
+    
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/update.js"></script>
