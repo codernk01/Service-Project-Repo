@@ -538,9 +538,11 @@ h5,
     position: relative;
     z-index: 1;
 }
-.tile img{
+
+.tile img {
     height: 12rem;
 }
+
 @media (max-width: 991.98px) {
     .img-md-fluid {
         max-width: 100%;
@@ -645,6 +647,7 @@ h5,
 .fa-check-square {
     font-size: 3rem;
 }
+
 .top-bar {
     border-bottom: 1px solid #e9ecef !important;
 }
@@ -676,7 +679,7 @@ h5,
 
 .site-navbar .site-logo {
     position: absolute;
-    font-size: 2.8rem;
+    font-size: 2.3rem;
     text-transform: uppercase;
     font-weight: 900;
     line-height: 0;
@@ -1160,78 +1163,98 @@ nav ul li {
 #my-logo {
     padding-left: 0.6rem;
 }
+
 .home-page-section {
     position: relative;
     margin-bottom: 70px;
     text-align: center;
 }
+
 .eeEasyStepsSectionBody {
     display: table;
     border-spacing: 0px 0px;
     width: 80%;
     margin: 3rem auto;
 }
-@media (max-width: 767px){
-.eEasyStepsSectionBody,.eeEasyStepsSectionBody{
-    display: block;
+
+@media (max-width: 767px) {
+    .eEasyStepsSectionBody,
+    .eeEasyStepsSectionBody {
+        display: block;
+    }
 }
-}
+
 .eeRow {
     display: table-row;
 }
-@media (max-width: 767px){
-.eeRow {
-    display: block;
-    text-align: center;
+
+@media (max-width: 767px) {
+    .eeRow {
+        display: block;
+        text-align: center;
+    }
 }
-}
-.eeEasyStepsSectionBody .eeCell.eeLeft, .eeEasyStepsSectionBody .eeCell.eeRight {
+
+.eeEasyStepsSectionBody .eeCell.eeLeft,
+.eeEasyStepsSectionBody .eeCell.eeRight {
     width: 50%;
     vertical-align: middle;
 }
+
 .eeEasyStepsSectionBody .eeCell {
     text-align: left;
     vertical-align: middle;
 }
+
 .eeCell {
     display: table-cell;
 }
-@media (max-width: 767px){
-.eeCell {
-    display: block;
-    width: 100% !important;
-    text-align: center !important;
+
+@media (max-width: 767px) {
+    .eeCell {
+        display: block;
+        width: 100% !important;
+        text-align: center !important;
+    }
 }
-}
+
 .eeEasyStepsSectionBody .eeCell.eeRight {
     text-align: right;
 }
 
-.eeEasyStepsSectionBody .eeCell.eeLeft, .eeEasyStepsSectionBody .eeCell.eeRight {
+.eeEasyStepsSectionBody .eeCell.eeLeft,
+.eeEasyStepsSectionBody .eeCell.eeRight {
     width: 50%;
     vertical-align: middle;
 }
-@media (max-width: 767px){
-.eeReversedRow {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}}
-@media (max-width: 767px){
-.eeReversedRow .eeCell {
-    -webkit-order: 2;
-    -ms-flex-order: 2;
-    order: 2;
-}}
-@media (max-width: 767px){
-.eeReversedRow .eeCell.eeRight {
-    -webkit-order: 1;
-    -ms-flex-order: 1;
-    order: 1;
-}}
+
+@media (max-width: 767px) {
+    .eeReversedRow {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767px) {
+    .eeReversedRow .eeCell {
+        -webkit-order: 2;
+        -ms-flex-order: 2;
+        order: 2;
+    }
+}
+
+@media (max-width: 767px) {
+    .eeReversedRow .eeCell.eeRight {
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+        order: 1;
+    }
+}
+
 .eeEasyStepsSectionBody .eeTitle {
     font-size: 1.5rem;
     font-weight: 700;
@@ -1246,25 +1269,29 @@ nav ul li {
     margin-top: 15px;
     line-height: normal;
 }
+
 .eeEasyStepsSectionBody .eeText {
     font-size: 1rem;
 }
-.how-header
-{
+
+.how-header {
     color: #0a0f14;
     font-family: "Cera Pro", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 }
+
 .style-two {
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
+
 .eeText {
     color: #6a6d75;
     font-family: "Cera Pro", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     font-weight: 400;
     font-size: 13px;
 }
+
 .eeEasyStepsSectionBody .eeImage svg {
     width: 20rem;
     height: 10rem;
@@ -1276,14 +1303,12 @@ nav ul li {
     position: relative;
     z-index: 2;
     margin: 0 auto!important;
-    width: 75rem;
     border-radius: 4px;
     box-shadow: 0 8px 26px 0 rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     height: auto;
 }
-
 
 #h2-row {
     margin: 0 auto;
@@ -1380,7 +1405,6 @@ nav ul li {
     list-style: none;
 }
 
-
 .site-mobile-menu .site-nav-wrap>li>ul>li {
     display: block;
 }
@@ -1425,49 +1449,52 @@ nav ul li {
 
 .service1-div {
     width: auto;
-    height: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
 }
 
 .service2-div {
     width: auto;
-    height: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
 }
 
 .tile {
     text-align: center;
-    height: fit-content;
+    height: 187.5px;
+    width: 160.5px;
     padding: 4px;
+    contain: content;
+    margin-top: 10px;
 }
 
 #electrician {
     color: #000;
     background-color: rgb(193, 196, 66);
-    border-radius: 4px 4px 8px 8px;
+    border-radius: 4px 4px 4px 4px;
     transition: ease-out 200ms;
 }
 
 #housekeeper {
     color: #000;
     background-color: rgb(184, 61, 145);
-    border-radius: 4px 4px 8px 8px;
+    border-radius: 4px 4px 4px 4px;
     transition: ease-out 200ms;
 }
 
 #plumber {
     color: #000;
     background-color: rgb(60, 142, 180);
-    border-radius: 4px 4px 8px 8px;
+    border-radius: 4px 4px 4px 4px;
     transition: ease-out 200ms;
 }
 
 #carpenter {
     color: #000;
     background-color: rgb(142, 184, 52);
-    border-radius: 4px 4px 8px 8px;
+    border-radius: 4px 4px 4px 4px;
     transition: ease-out 200ms;
 }
 
@@ -1490,6 +1517,28 @@ nav ul li {
     display: flex;
     margin: 1rem 0;
     justify-content: center;
+}
+
+@media(max-width: 767px) {
+    .container-section-row {
+        width: 100%;
+        justify-content: space-around!important;
+    }
+    .div {
+        flex-direction: column;
+    }
+}
+
+@media(min-width:769px) {
+    .container-section-row {
+        justify-content: space-around!important;
+    }
+}
+
+.div {
+    display: flex;
+    width: 50%;
+    justify-content: inherit;
 }
 
 
@@ -1549,7 +1598,7 @@ nav>ul>li>a:hover::after {
 
 .sticky-wrapper.is-sticky .site-navbar {
     background-color: #2f3337;
-    /* For browsers that do not support gradients */    
+    /* For browsers that do not support gradients */
     -webkit-box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.2);
     box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.2);
 }
@@ -2150,12 +2199,12 @@ nav>ul>li>a:hover::after {
         display: none;
     }
 }
-@media (max-width: 768px){
-.container {
-    overflow: hidden;
-}
-}
 
+@media (max-width: 768px) {
+    .container {
+        overflow: hidden;
+    }
+}
 
 .slide-one-item .owl-nav .owl-prev,
 .slide-one-item .owl-nav .owl-next {

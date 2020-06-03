@@ -5,7 +5,7 @@
     <title>TUDU</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <link href="./images/checkmark.png" rel="icon">
     <link href="./images/checkmark.png" rel="apple-touch-icon">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700" rel="stylesheet">
@@ -45,6 +45,7 @@
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
+
         <header class="site-navbar js-sticky-header site-navbar-target" style="height: 4.5rem;" role="banner">
 
             <div class="row align-center position-relative">
@@ -76,7 +77,7 @@
                                             <li><a href="#">Menu Three</a></li>
                                         </ul>
                                     </li>-->
-                            
+
                                 </ul>
                             </li>
 
@@ -92,7 +93,7 @@
                             <% if(!currentUser) { %>
                                 <!-- <a href="/register" class="nav-link">REGISTER</a> -->
                                 <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important;">USER LOGIN/REGISTER</a></li>
-                                
+
                                 <% } else { %>
                                     <li>WELCOME,
                                         <%= currentUser.firstname %>
@@ -139,30 +140,34 @@
 
 
         <div id="ourservice-container" class="container">
-            <div class="container-section-row d-flex justify-content-around">
+            <div class="container-section-row  d-flex">
 
-                <div id="electrician1" class="service1-div">
-                    <div class="tile">ELECTRICIAN<img src="images\real electrician.png" >
+                <div class="div">
+                    <div id="electrician1" class="service1-div">
+                        <div class="tile">ELECTRICIAN<img src="images\real electrician.png">
+                        </div>
+                    </div>
+
+                    <div id="homesalon1" class="service2-div ">
+                        <div class="tile">HOME SALON<img src="images/real beautician.png">
+                        </div>
                     </div>
                 </div>
-
-                <div id="homesalon1" class="service2-div ">
-                    <div class="tile">HOME SALON<img src="images/real beautician.png">
+                <div class="div">
+                    <div id="plumber1" class="service1-div">
+                        <div class="tile">PLUMBER<img src="images/real plumber.png">
+                        </div>
                     </div>
-                </div>
 
-                <div id="plumber1" class="service1-div" >
-                    <div class="tile">PLUMBER<img src="images/real plumber.png" >
-                    </div>
-                </div>
-
-                <div id="carpenter1" class="service2-div">
-                    <div class="tile">CARPENTER<img src="images/real carpenter.png">
+                    <div id="carpenter1" class="service2-div">
+                        <div class="tile">CARPENTER<img src="images/real carpenter.png">
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
+
         <section class="home-page-section eeEasyStepsSection">
             <div class="container">
                 <h1 class="how-header">How TuDu Works</h1>
