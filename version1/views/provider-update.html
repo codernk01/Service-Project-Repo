@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<meta charset="UTF-8">
+<title>User Settings Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" href="css/update.css">
+</head>
+<body>
+    <h1 class="display1">Service Provider Profile</h1>
+    <div class="container">
+        <div class="leftbox">
+            <nav>
+                <a onclick="tabs(0)" class="tab active">
+                     <i class="fa fa-user"></i>
+                </a>
+                <a onclick="tabs(1)" class="tab">
+                    <i class="fa fa-credit-card"></i>
+                </a>
+                <a onclick="tabs(2)" class="tab">
+                    <i class="fa fa-tv"></i>
+                </a>
+                <a onclick="tabs(3)" class="tab">
+                    <i class="fa fa-tasks"></i>
+                </a>
+                <a onclick="tabs(4)" class="tab">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </nav>
+        </div>
+        <div class="rightbox">
+            <div class="profile tabShow">
+                <h1>Personal Info</h1>
+                <h2>Full Name</h2>
+                <input type="text" class="input" value="Rahul Chopra">
+                <h2>Birthday</h2>
+                <input type="text" class="input" value="20/04/1992">
+                <h2>Gender</h2>
+                <input type="text" class="input" value="Male">
+                <h2>Email</h2>
+                <input type="text" class="input" value="example@gmail.com">
+                <h2>Password</h2>
+                <input type="password" class="input" value="brightcode">
+                <button class="btn">update</button>
+            </div>
+            <div class="payment tabShow">
+                <h1>Payment Info</h1>
+                <h2>Payment Method</h2>
+                <input type="text" class="input" value="MasterCard - 0202 **** **** 3245">
+                <h2>Billing Address</h2>
+                <input type="text" class="input" value="House no.235 Chandni Chowk,Delhi">
+                <h2>PinCode</h2>
+                <input type="text" class="input" value="234005">
+                <h2>Billing Date</h2>
+                <input type="text" class="input" value="5/1/2018">
+                <h2>Redeem Card</h2>
+                <input type="password" class="input" value="Enter Gift Code">
+                <button class="btn">update</button>
+            </div>
+            <div class="subscription tabShow">
+                <h1>Subscription Info</h1>
+                <h2>Payment Date</h2>
+                <p>12/05/2019</p>
+                <h2>Next Charges</h2>
+                <p>Rs.800<span>includes tax</span></p>
+                <h2>Plan</h2>
+                <p>Limited Plan</p>
+                <h2>Monthly Payment</h2>
+                <p>Rs.300/month</p>
+                <button class="btn">update</button>
+            </div>
+            <div class="privacy tabShow">
+                <h1>Privacy Settings</h1>
+                <h2>Manage Email Noti.</h2>
+                <p></p>
+                <h2>Manage Privacy Settings</h2>
+                <p></p>
+                <h2>Veiw Terms Of Use</h2>
+                <p></p>
+                <h2>Personalized Ad Experience</h2>
+                <p></p>
+                <h2>Protect Account</h2>
+                <p></p>
+                <button class="btn">update</button>
+            </div>
+            <div class="settings tabShow">
+                <h1>Account Settings</h1>
+                <h2>Sync Watchlist</h2>
+                <p></p>
+                <h2>Hold Subcription</h2>
+                <p></p>
+                <h2>Cancel Subscription</h2>
+                <p></p>
+                <h2>Your Devices</h2>
+                <p></p>
+                <h2>Refferals</h2>
+                <p></p>
+                <button class="btn">update</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/update.js"></script>
+</body>
+</html>
