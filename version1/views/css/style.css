@@ -644,7 +644,6 @@ h5,
     width: 100%;
 }
 
-
 .top-bar {
     border-bottom: 1px solid #e9ecef !important;
 }
@@ -687,7 +686,6 @@ h5,
     padding: 0;
     z-index: 3;
 }
-
 
 nav {
     display: inline-block;
@@ -828,12 +826,13 @@ nav ul li {
     list-style: none;
     padding: 0;
     margin: 0;
-    min-width: 200px;
+    min-width: 151px;
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown>li>a {
-    padding: 9px 20px;
+    padding: 0.5rem 0 0.5rem 9px;
     display: block;
+    max-width: fit-content
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown>li>a:hover {
@@ -958,7 +957,8 @@ nav ul li {
     -webkit-overflow-scrolling: touch;
     position: relative;
     padding: 0 20px 20px 20px;
-    height: calc(100vh - 52px);
+    display: flex;
+    flex-direction: column-reverse;
     padding-bottom: 150px;
 }
 

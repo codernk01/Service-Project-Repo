@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="css/lightslider.css">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Font awesome link -->
+    <script src="https://kit.fontawesome.com/5aa5fc357e.js" crossorigin="anonymous"></script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -91,15 +93,26 @@
                                 <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important;">USER LOGIN/REGISTER</a></li>
 
                                 <% } else { %>
-                                    <li style="text-align: center; padding-top: 5px;">WELCOME,<br>
-                                        <%= currentUser.firstname %>
-                                    </li>
 
-                                    <li><a href="/logout" class="nav-link" style="color: #35eab6 !important;">LOGOUT</a></li>
-                                    <% } %>
-                                        <!--.........-->
-                                        <!--<li><a href="#blog-section" class="nav-link">Blog</a></li>-->
-                                        <!--<li><a href="#contact-section" class="nav-link">Contact</a></li>-->
+                                    <li class="has-children">
+                                        <a href="#" class="nav-link" style="
+                                        padding-top: 13px;
+                                        padding-bottom: 13px;
+                                        font-size: 14px;">WELCOME,
+                                        <br>
+                                        <i class="fas fa-user-alt" style="font-size:large"></i>
+                                        <%= currentUser.firstname %>
+                                        </a>
+
+                                        <ul class="dropdown arrow-top">
+                                            <li><a href="#" class="nav-link">Manage Account</a></li>
+                                            <li><a href="#" class="nav-link">Previous bookings</a></li>
+                                            <li><a href="/logout" class="nav-link">LOGOUT</a>
+                                        </ul>
+                                        </li>
+                                        <%
+                                }
+                             %>
                         </ul>
                     </nav>
                 </div>
@@ -146,7 +159,7 @@
                     </div>
 
                     <div id="homesalon1" class="service2-div ">
-                        <div class="tile">HOME SALON<img src="images/real beautician.png">
+                        <div class="tile">HOME SALON <img src="images/real beautician.png">
                         </div>
                     </div>
                 </div>
