@@ -644,9 +644,6 @@ h5,
     width: 100%;
 }
 
-.fa-check-square {
-    font-size: 3rem;
-}
 
 .top-bar {
     border-bottom: 1px solid #e9ecef !important;
@@ -679,7 +676,7 @@ h5,
 
 .site-navbar .site-logo {
     position: absolute;
-    font-size: 2.3rem;
+    font-size: 3rem;
     text-transform: uppercase;
     font-weight: 900;
     line-height: 0;
@@ -690,6 +687,7 @@ h5,
     padding: 0;
     z-index: 3;
 }
+
 
 nav {
     display: inline-block;
@@ -708,6 +706,8 @@ nav ul li {
 @media (max-width: 991.98px) {
     .site-navbar .site-logo {
         float: left;
+        font-size: 2.5rem;
+        padding-top: 8px;
         top: -1.5rem;
     }
 }
