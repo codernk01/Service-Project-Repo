@@ -91,6 +91,9 @@ app.get("/logout",function(req,res){
 })
 
 //Service provider Routes
+app.get("/provider",function(req,res){
+    res.render("partner-page");
+})
 //LOGIN-REGISTER
 app.get("/providerloginregister",function(req,res){
     res.render("provider_login_register");
