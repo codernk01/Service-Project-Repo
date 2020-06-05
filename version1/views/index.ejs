@@ -86,7 +86,13 @@
                         </ul>
                     </nav>
                     <nav class="site-navigation text-right " id="right-nav" role="navigation">
-                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                        <!--*************************SEARCH BAR *********************-->
+                        <form action="/" method="GET">
+                            <input type="text" name="search" placeholder="search the service type...">
+                            <input type="submit" value="SUBMIT">
+                        </form>
+                        <!--*********************************************************-->
+                        <ul display="inline" class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                             <!--this segment is for register,login and logout-->
                             <% if(!currentUser) { %>
                                 <!-- <a href="/register" class="nav-link">REGISTER</a> -->

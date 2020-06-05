@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% results.forEach(function(result){%>
+        <ul>SERVICE PROVIDER : <%result.provider.forEach(function(p){%>
+            <%=p.firstname%>  
+        <%})%>
+        </ul>
+        <ul>SERVICE TYPE : <%= result.type%></ul>
+        <ul>RELATED TO :<%= result.appliance%></ul>
+        <ul>DESCRIPTION :<%= result.description%></ul>
+        <ul>PRICE :<%= result.price%></ul>
+        <hr>
+    <%})%>
+</body>
+</html>

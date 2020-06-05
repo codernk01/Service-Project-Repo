@@ -51,7 +51,25 @@ app.use(function(req,res,next){
 });
 
 app.get("/",function(req,res){
-    res.render("index");
+    console.log(req.query.search);
+    if(req.query.search){
+        Service.find({type : {
+            $regex : new RegExp(req.query.search,'i')
+        }}).populate("provider").exec(function(err,data){
+            if(err){
+                console.log(err);
+            }
+            else{
+                //console.log(data);
+                res.render("searchpage",{results:data});
+                
+                //res.render("index");
+            }
+        })
+    }
+    else{
+        res.render("index");
+    }
 })
 
 //User routes
@@ -217,8 +235,8 @@ app.post("/provider/:id/addservice",function(req,res){
                             foundprovider.save();
                             addedservice.provider.push(foundprovider);
                             addedservice.save();
-                            console.log(foundprovider);
-                            console.log(addedservice);
+                            //console.log(foundprovider);
+                            //console.log(addedservice);
                             res.redirect("/provider/"+req.params.id);
                         }
                         else{

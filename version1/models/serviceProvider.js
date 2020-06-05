@@ -11,8 +11,8 @@ var serviceProviderSchema = new mongoose.Schema({
     password: String,
     servicesProviding :[
         {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Service",
+            type : mongoose.Schema.Types.ObjectId,
+            ref : "Service",
         }
     ],
 });
