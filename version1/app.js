@@ -235,7 +235,58 @@ app.post("/provider/:id/addservice",function(req,res){
         }
     })
 })
+// update service 
+app.get("/provider/:id/:serviceid/edit",function(req,res){
+    Service.findById(req.params.serviceid,function(err,foundservice){
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(foundservice){
+                res.render("editservice",{service : foundservice, id :req.params.id});
+            }
+            else{
+                console.log("service not found");
+                res.redirect("/provider/"+req.params.id);
+            }
 
+        }
+    })
+})
+app.put("/provider/:id/:serviceid",function(req,res){
+    Service.findByIdAndUpdate(req.params.serviceid,req.body.updatedservice,function(err,updated){
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(updated){
+                res.redirect("/provider/"+req.params.id);
+            }
+            else{
+                console.log("service not updated");
+                res.redirect("/provider/"+req.params.id);
+            }
+        }
+    })
+})
+//delete service
+app.delete("/provider/:id/:serviceid/delete",function(req,res){
+    Service.findByIdAndDelete(req.params.serviceid,function(err,deletedservice){
+        if(err){
+            console.log(err);
+        }
+        else{
+            if(deletedservice){
+                console.log("service deleted");
+                res.redirect("/provider/"+req.params.id);
+            }
+            else{
+                console.log("service not deleted");
+                res.redirect("/provider/"+req.params.id);
+            }
+        }
+    })
+})
 app.listen(8080,function(){
     console.log("Running at localhost:8080");
 })

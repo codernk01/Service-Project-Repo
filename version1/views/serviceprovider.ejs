@@ -27,6 +27,12 @@
                 <ul>RELATED TO :<%= service.appliance%></ul>
                 <ul>DESCRIPTION :<%= service.description%></ul>
                 <ul>PRICE :<%= service.price%></ul>
+                <div>
+                    <button><a href="/provider/<%=currentUser._id%>/<%=service._id%>/edit">UPDATE</a></button>
+                    <form action="/provider/<%=currentUser._id%>/<%=service._id%>/delete?_method=DELETE" method="POST">
+                        <button >DELETE</button>
+                    </form>
+                </div>
                 <hr>
             <% }) %>
         <% }else { %>
@@ -35,3 +41,9 @@
     </div>
 </body>
 </html>
+
+<style>
+    #delete {
+        display: inline;
+    }
+</style>
