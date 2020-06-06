@@ -15,7 +15,7 @@ body{
     position: absolute;
     width: 21%;
     height: 100%;
-    background: #2ed573;
+    background: #1eb980;
     box-shadow: 3px 3px 10px rgba(119, 119, 119,.5);
     border: 0.2em solid #fff;
 }
@@ -36,7 +36,7 @@ nav a{
 nav a span
 {
     color: #fff;
-    padding-left: 4px;
+    padding-left: 5px;
     font-size: 1em;
 }
 
@@ -57,10 +57,10 @@ nav a.active
 
 .rightbox
 {
-    width: 90%;
+    width: 100%;
     padding-top: 5px;
     background: #fff;
-    height: 82%;
+    height: 100%;
     margin: 0 auto;
     position: absolute;
     box-shadow: 2px 5px 20px rgba(119, 119, 119,.5);
@@ -76,7 +76,7 @@ nav a.active
 h1{
     font-family:"Montserrat",sans-serif ;
     color: #59d664;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     margin-top: 40px;
     margin-bottom: 35px;
 }
@@ -90,15 +90,26 @@ h2
     margin-left: 2px;
     margin-top: 10px;
 }
-.input, p
+p
 {
     border: 0;
     border-bottom: 1px solid #3fb6a8;
-    width: 80%;
+    width: 50%;
     font-family:"montserrat",sans-serif;
     font-size: .7em;
     padding: 7px 0;
     color: #070707;
+    outline: none;
+}
+.input
+{
+    border: 0;
+    width: 50%;
+    font-family:"montserrat",sans-serif;
+    font-size: .7em;
+    padding: 7px 0;
+    color: #070707;
+    background-color: rgb(210, 210, 214);
     outline: none;
 }
 span

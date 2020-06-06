@@ -139,6 +139,7 @@ a {
 }
  .site-navbar .site-logo a {
     text-align: center;
+    text-decoration: none;
     color: #fff;
     text-shadow: 2px 4px black;
 }
@@ -236,6 +237,7 @@ a {
     text-align: center;
     vertical-align: middle;
     touch-action: manipulation;
+    text-decoration: none;
     cursor: pointer;
     background-image: none;
     border: 1px solid transparent;
