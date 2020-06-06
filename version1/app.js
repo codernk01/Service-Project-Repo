@@ -7,6 +7,8 @@ var User = require("./models/user");
 var ServiceProvider = require("./models/serviceProvider");
 var Service =require("./models/service");
 var methodOverride = require("method-override");
+var multer= require("multer");
+var upload = multer({dest:'uploads/'});
 
 var app = express();
 
@@ -162,7 +164,19 @@ app.get("/provider/:id",function(req,res){
             }
         }
     })
-})
+});
+
+app.post("/provider/:id", upload.single('photo'),function(req,res){
+    if(!req.file){
+    console.log("No filr rec");
+    }
+    else{
+    console.log("file rec");
+    console.log(req.file);
+    }
+});
+
+
 //SERVICE PROVIDER PROFILE UPDATE
 app.get("/provider/:id/edit" ,function(req,res){
     
