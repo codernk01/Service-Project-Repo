@@ -14,9 +14,9 @@
                  <span>Personal Info</span>
                  
             </a>
-            <a onclick="tabs(1)" class="tab" href="/provider/<%=currentUser._id%>/addservice">
+            <a onclick="tabs(1)" class="tab" >
                 <i class="fa fa-credit-card"></i>
-                <span>Add Services</span>
+                <span>Your Services</span>
                 
             </a>
             <a onclick="tabs(2)" class="tab">
@@ -63,6 +63,11 @@
                
 
                 <!-- <button><a href="/provider/<%=currentUser._id%>/addservice">ADD SERVICES</a></button> -->
+                
+
+            </div>
+            
+            <div class="service tabShow">
                 <div>
                     <h4>YOUR SERVICES</h4>
                     <% if(currentUser.servicesProviding) {%>
@@ -82,11 +87,7 @@
                         <li>YOU DONT HAVE ANY SERVICES YET </li>
                     <% } %>
                 </div>
-
-            </div>
-            
-            <div class="service tabShow">
-                
+                <h1>Add more services</h1>
                 <form action="/provider/<%=currentUser._id%>/addservice" method="POST">
                     
                     <li>YOUR SERVICE IS RELATED TO :</li>

@@ -220,10 +220,10 @@ app.put("/provider/:id",function(req,res){
     })
 })
 //ADD SERVICES FOR PROVIDER
-app.get("/provider/:id/addservice",function(req,res){
-    console.log(req.params.id);
-    // res.render("addservice",{providerId :req.params.id});
-})
+// app.get("/provider/:id/addservice",function(req,res){
+//     console.log(req.params.id);
+//     // res.render("addservice",{providerId :req.params.id});
+// })
 app.post("/provider/:id/addservice",function(req,res){
     var service = new Service({
         appliance : req.body.appliance,
