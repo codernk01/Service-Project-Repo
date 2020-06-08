@@ -14,22 +14,27 @@
                  <span>Personal Info</span>
                  
             </a>
-            <a onclick="tabs(1)" class="tab">
+            <a onclick="tabs(1)" class="tab" href="/provider/<%=currentUser._id%>/addservice">
+                <i class="fa fa-credit-card"></i>
+                <span>Add Services</span>
+                
+            </a>
+            <a onclick="tabs(2)" class="tab">
                 <i class="fa fa-credit-card"></i>
                 <span>Payment Info</span>
                 
             </a>
-            <a onclick="tabs(2)" class="tab">
+            <a onclick="tabs(3)" class="tab">
                 <i class="fa fa-tv"></i>
                 <span>Subscription Info</span>
                 
             </a>
-            <a onclick="tabs(3)" class="tab">
+            <a onclick="tabs(4)" class="tab">
                 <i class="fa fa-tasks"></i>
                 <span> Privacy Settings</span>
                
             </a>
-            <a onclick="tabs(4)" class="tab">
+            <a onclick="tabs(5)" class="tab">
                 <i class="fa fa-cog"></i>
                 <span> Account Settings</span>
                
@@ -53,8 +58,49 @@
                 <p><%= currentUser.address %></p>
                 
                 <button class="btn"><a href="/provider/<%=currentUser._id%>/edit">UPDATE PROFILE</a></button>
+               
+
+                <!-- <button><a href="/provider/<%=currentUser._id%>/addservice">ADD SERVICES</a></button> -->
+                <div>
+                    <h4>YOUR SERVICES</h4>
+                    <% if(currentUser.servicesProviding) {%>
+                        <% currentUser.servicesProviding.forEach(function(service){ %>
+                            <ul>SERVICE TYPE : <%= service.type%></ul>
+                            <ul>RELATED TO :<%= service.appliance%></ul>
+                            <ul>DESCRIPTION :<%= service.description%></ul>
+                            <ul>PRICE :<%= service.price%></ul>
+                            <div>
+                                <button><a href="/provider/<%=currentUser._id%>/<%=service._id%>/edit">UPDATE</a></button>
+                                <form action="/provider/<%=currentUser._id%>/<%=service._id%>/delete?_method=DELETE" method="POST">
+                                    <button >DELETE</button>
+                                </form>
+                            </div>
+                            <hr>
+                        <% }) %>
+                    <% }else { %>
+                        <li>YOU DONT HAVE ANY SERVICES YET </li>
+                    <% } %>
+                </div>
+
             </div>
             
+            <div class="service tabShow">
+                
+                <form action="/provider/<%=currentUser._id%>/addservice" method="POST">
+                    <li>CHOOSE TYPE OF SERVICE</li>
+                    <input type="text" class="input" autocomplete="off" name="type" placeholder="Choose type of service">
+                    <li>YOUR SERVICE IS RELATED TO :</li>
+                    <input type="text" class="input" autocomplete="off" name="appliance" placeholder="Your service is related to">
+                    <li>DESCRIBE YOUR SERVICE</li>
+                    <input type="text" class="input" autocomplete="off" name="description" placeholder="Describe your service">
+                    <li>ENTER THE PRICE OF THE SERVICE</li>
+                    <input type="number" class="input" autocomplete="off" name="price" placeholder="Price"><br>
+                    <button class="click">ADD SERVICE</button>
+                </form>
+                <p>Hey there</p>
+            </div>
+
+
             <div class="payment tabShow">
                 <h1>Payment Info</h1>
                 <h2>Payment Method</h2>

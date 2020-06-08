@@ -174,7 +174,8 @@ app.post("/provider/:id", upload.single('photo'),function(req,res){
 //SERVICE PROVIDER PROFILE UPDATE
 app.get("/provider/:id/edit" ,function(req,res){
     
-    ServiceProvider.findById(req.params.id, function(err,foundProvider){
+    // ServiceProvider.findById(req.params.id, function(err,foundProvider){
+    ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
     if(err)
     {
         console.log(err);
@@ -183,7 +184,7 @@ app.get("/provider/:id/edit" ,function(req,res){
         //console.log(foundProvider);
         if(foundProvider)
         {
-        res.render("provider-update", {provider: foundProvider});
+             res.render("provider-update", {id :req.params.id, provider: foundProvider});
         }
         else
         {
@@ -213,7 +214,8 @@ app.put("/provider/:id",function(req,res){
 })
 //ADD SERVICES FOR PROVIDER
 app.get("/provider/:id/addservice",function(req,res){
-    res.render("addservice",{providerId :req.params.id});
+    console.log(req.params.id);
+    // res.render("addservice",{providerId :req.params.id});
 })
 app.post("/provider/:id/addservice",function(req,res){
     var service = new Service({

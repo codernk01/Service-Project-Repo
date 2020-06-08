@@ -17,20 +17,25 @@
             </a>
             <a onclick="tabs(1)" class="tab">
                 <i class="fa fa-credit-card"></i>
-                <span>Payment Info</span>
+                <span>Edit Service Info</span>
                 
             </a>
             <a onclick="tabs(2)" class="tab">
+                <i class="fa fa-credit-card"></i>
+                <span>Payment Info</span>
+                
+            </a>
+            <a onclick="tabs(3)" class="tab">
                 <i class="fa fa-tv"></i>
                 <span>Subscription Info</span>
                 
             </a>
-            <a onclick="tabs(3)" class="tab">
+            <a onclick="tabs(4)" class="tab">
                 <i class="fa fa-tasks"></i>
                 <span> Privacy Settings</span>
                
             </a>
-            <a onclick="tabs(4)" class="tab">
+            <a onclick="tabs(5)" class="tab">
                 <i class="fa fa-cog"></i>
                 <span> Account Settings</span>
                
@@ -56,6 +61,41 @@
                     <button class="btn">Save Changes</button>
                 </form>
             </div>
+
+            <div class="service tabShow">
+                <div>
+                    <h4>YOUR SERVICES</h4>
+
+                    <% if(provider.servicesProviding) {%>
+                        <% provider.servicesProviding.forEach(function(service){ %>
+                            <form action="/provider/<%=id%>/<%=service._id%>?_method=PUT" method="POST">
+
+                            <h2>Service Type</h2>
+                            <input type="text"  value="<%= service.type%>" name="updatedservice[type]">
+                            <h2>Related To</h2>
+                            <input type="text"  value="<%= service.appliance%>" name="updatedservice[appliance]">
+                            <h2>Service Type</h2>
+                            <input type="text"  value="<%= service.description%>" name="updatedservice[description]">
+                            <h2>Service Type</h2>
+                            <input type="text"  value="<%= service.price%>" name="updatedservice[price]">
+                            
+                            <button>Save Changes</button>
+
+                            
+                            <!-- <div>
+                                <button><a href="/provider/<%=provider._id%>/<%=service._id%>/edit">UPDATE</a></button>
+                                <form action="/provider/<%=provider._id%>/<%=service._id%>/delete?_method=DELETE" method="POST">
+                                    <button >DELETE</button>
+                                </form>
+                            </div> -->
+                            <hr>
+                        <% }) %>
+                    <% }else { %>
+                        <li>YOU DONT HAVE ANY SERVICES YET </li>
+                    <% } %>
+                </div>
+            </div>
+
             <div class="payment tabShow">
                 <h1>Payment Info</h1>
                 <h2>Payment Method</h2>
