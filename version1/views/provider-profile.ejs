@@ -56,6 +56,8 @@
                 <p> <%=currentUser.username%></p>
                 <h2>Address</h2>
                 <p><%= currentUser.address %></p>
+                <h2>Profession</h2>
+                <p><%= currentUser.profession %></p>
                 
                 <button class="btn"><a href="/provider/<%=currentUser._id%>/edit">UPDATE PROFILE</a></button>
                
@@ -65,7 +67,6 @@
                     <h4>YOUR SERVICES</h4>
                     <% if(currentUser.servicesProviding) {%>
                         <% currentUser.servicesProviding.forEach(function(service){ %>
-                            <ul>SERVICE TYPE : <%= service.type%></ul>
                             <ul>RELATED TO :<%= service.appliance%></ul>
                             <ul>DESCRIPTION :<%= service.description%></ul>
                             <ul>PRICE :<%= service.price%></ul>
@@ -87,8 +88,7 @@
             <div class="service tabShow">
                 
                 <form action="/provider/<%=currentUser._id%>/addservice" method="POST">
-                    <li>CHOOSE TYPE OF SERVICE</li>
-                    <input type="text" class="input" autocomplete="off" name="type" placeholder="Choose type of service">
+                    
                     <li>YOUR SERVICE IS RELATED TO :</li>
                     <input type="text" class="input" autocomplete="off" name="appliance" placeholder="Your service is related to">
                     <li>DESCRIBE YOUR SERVICE</li>

@@ -9,6 +9,7 @@ var serviceProviderSchema = new mongoose.Schema({
     phone_no: Number,
     address: String,
     password: String,
+    profession : String,
     servicesProviding :[
         {
             type : mongoose.Schema.Types.ObjectId,

@@ -125,7 +125,8 @@ app.post("/providerregister",function(req,res){
         firstname:req.body.firstname,
         lastname: req.body.lastname,
         phone_no:req.body.phone_no,
-        address:req.body.address
+        address:req.body.address,
+        profession : req.body.profession
         });
     ServiceProvider.register(newProvider,req.body.password,function(err,serviceprovider){
         if(err){
@@ -133,7 +134,7 @@ app.post("/providerregister",function(req,res){
             return res.render("provider_login_register");
         }
         passport.authenticate("provider-local")(req,res,function(){
-            res.render("serviceprovider");
+            res.redirect("/provider/"+serviceprovider._id);
             });
     });
 });
@@ -219,7 +220,6 @@ app.get("/provider/:id/addservice",function(req,res){
 })
 app.post("/provider/:id/addservice",function(req,res){
     var service = new Service({
-        type : req.body.type,
         appliance : req.body.appliance,
         description : req.body.description,
         price : req.body.price,

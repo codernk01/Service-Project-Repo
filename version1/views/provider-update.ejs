@@ -57,7 +57,9 @@
                     <h2>Phone No.</h2>
                     <input type="text" value="<%= provider.phone_no %>" name="provider[phone_no]">
                     <h2>Address</h2>
-                    <input type="password" value="<%= provider.address %>" name="provider[address]">
+                    <input type="text" value="<%= provider.address %>" name="provider[address]">
+                    <h2>Profession</h2>
+                    <input type="text" value="<%= provider.profession %>" name="provider[profession]">
                     <button class="btn">Save Changes</button>
                 </form>
             </div>
@@ -70,13 +72,11 @@
                         <% provider.servicesProviding.forEach(function(service){ %>
                             <form action="/provider/<%=id%>/<%=service._id%>?_method=PUT" method="POST">
 
-                            <h2>Service Type</h2>
-                            <input type="text"  value="<%= service.type%>" name="updatedservice[type]">
                             <h2>Related To</h2>
                             <input type="text"  value="<%= service.appliance%>" name="updatedservice[appliance]">
-                            <h2>Service Type</h2>
+                            <h2>Description</h2>
                             <input type="text"  value="<%= service.description%>" name="updatedservice[description]">
-                            <h2>Service Type</h2>
+                            <h2>Price</h2>
                             <input type="text"  value="<%= service.price%>" name="updatedservice[price]">
                             
                             <button>Save Changes</button>

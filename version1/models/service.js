@@ -2,7 +2,6 @@ var mongoose = require("mongoose");
 var ServiceProvider = require("./serviceProvider");
 
 var serviceSchema = new mongoose.Schema({
-    type : String,
     appliance : String,
     description : String,
     price :Number,
