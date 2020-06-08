@@ -54,18 +54,24 @@ app.use(function(req,res,next){
 
 app.get("/",function(req,res){
     console.log(req.query.search);
+    let regex = new RegExp(req.query.search,'i');
     if(req.query.search){
-        Service.find({type : {
-            $regex : new RegExp(req.query.search,'i')
-        }}).populate("provider").exec(function(err,data){
+        ServiceProvider.find({
+            $or: [
+                {'firstname': regex},
+                {'lastname': regex},
+                {'username': regex},
+                {'address': regex},
+                {'profession': regex},
+             ]
+        }).populate("servicesProviding").exec(function(err,data){
             if(err){
                 console.log(err);
             }
             else{
-                //console.log(data);
-                res.render("searchpage",{results:data});
-                
-                //res.render("index");
+                console.log(data);
+                res.render("searchpage",{results :data});
+                //res.redirect("/");
             }
         })
     }
@@ -88,8 +94,8 @@ app.post("/register",function(req,res){
             return res.render("login_register");
         }
         passport.authenticate("local")(req,res,function(){
-            console.log("user ---------")
-            console.log(user);
+            //console.log("user ---------")
+            //console.log(user);
             res.redirect("/");
             });
     });
