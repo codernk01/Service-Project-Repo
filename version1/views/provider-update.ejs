@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>User Settings Page</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<link rel="stylesheet" href="css/update.css">
+<link rel="stylesheet" href="../../css/update.css">
 </head>
 <body>
     
@@ -40,18 +40,21 @@
     
         <div class="rightbox">
             <div class="profile tabShow">
-                <h1>Personal Info</h1>
-                <h2>Full Name</h2>
-                <input type="text" class="input" value="Rahul Chopra">
-                <h2>Birthday</h2>
-                <input type="text" class="input" value="20/04/1992">
-                <h2>Gender</h2>
-                <input type="text" class="input" value="Male">
-                <h2>Email</h2>
-                <input type="text" class="input" value="example@gmail.com">
-                <h2>Password</h2>
-                <input type="password" class="input" value="brightcode">
-                <button class="btn">update</button>
+                <form action="/provider/<%=provider._id%>?_method=PUT" method="POST" >
+                    <h1>Personal Info</h1>
+                    
+                    <h2>Full Name</h2>
+                    <input type="text"  value="<%= provider.firstname %>" name="provider[firstname]"">
+                    <h2>Last Name</h2>
+                    <input type="text" value="<%= provider.lastname %>" name="provider[lastname]">
+                    <h2>Email</h2>
+                    <input type="text" value="<%= provider.username %>" name="provider[username]">
+                    <h2>Phone No.</h2>
+                    <input type="text" value="<%= provider.phone_no %>" name="provider[phone_no]">
+                    <h2>Address</h2>
+                    <input type="password" value="<%= provider.address %>" name="provider[address]">
+                    <button class="btn">Save Changes</button>
+                </form>
             </div>
             <div class="payment tabShow">
                 <h1>Payment Info</h1>
@@ -110,7 +113,7 @@
         </div>
     
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/update.js"></script>
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/update.js"></script>
 </body>
 </html>

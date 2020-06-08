@@ -2,9 +2,8 @@
 <html lang="en">
     <head>
 <meta charset="UTF-8">
-<title>User Settings Page</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<link rel="stylesheet" href="css/update.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../css/update.css">
 </head>
 <body>
     
@@ -38,21 +37,24 @@
         </nav>
     </div>
     
+
         <div class="rightbox">
             <div class="profile tabShow">
+                <h2>Welcome <%=currentUser.firstname %></h2>
+                
                 <h1>Personal Info</h1>
                 <h2>Full Name</h2>
-                <p>Rahul Chopra</p>
-                <h2>Birthday</h2>
-                <p>20/04/1992</p>
-                <h2>Gender</h2>
-                <p>Male</p>
+                <p><%= currentUser.firstname %> <%= currentUser.lastname %></p>
+                <h2>Phone Number</h2>
+                <p><%= currentUser.phone_no%></p>
                 <h2>Email</h2>
-                <p>example@gmail.com</p>
-                <h2>Password</h2>
-                <p>brightcode</p>
-                <button class="btn">update</button>
+                <p> <%=currentUser.username%></p>
+                <h2>Address</h2>
+                <p><%= currentUser.address %></p>
+                
+                <button class="btn"><a href="/provider/<%=currentUser._id%>/edit">UPDATE PROFILE</a></button>
             </div>
+            
             <div class="payment tabShow">
                 <h1>Payment Info</h1>
                 <h2>Payment Method</h2>
@@ -110,7 +112,7 @@
         </div>
     
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/update.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/update.js"></script>
 </body>
 </html>

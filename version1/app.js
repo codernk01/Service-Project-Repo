@@ -145,19 +145,13 @@ app.post("/providerlogin", passport.authenticate("provider-local") ,function(req
 });
 //AFTER PROVIDER LOGIN-SERVICE PROVIDER PAGE
 app.get("/provider/:id",function(req,res){
-
     ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
         if(err)
-        {
             console.log(err);
-
-        }
         else{
             if(foundProvider)
-            {
                 
-                res.render("serviceprovider",{currentUser : foundProvider});
-            }
+                res.render("provider-profile",{currentUser : foundProvider});
             else{
                 console.log("provider not found");
                 res.redirect("/providerloginregister");
@@ -189,7 +183,7 @@ app.get("/provider/:id/edit" ,function(req,res){
         //console.log(foundProvider);
         if(foundProvider)
         {
-        res.render("editprofile", {provider: foundProvider});
+        res.render("provider-update", {provider: foundProvider});
         }
         else
         {
