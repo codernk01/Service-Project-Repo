@@ -12,6 +12,7 @@ var upload = multer({dest:'uploads/'});
 
 var app = express();
 
+
 mongoose.connect("mongodb://localhost/tudu", function(err,res){
     if(err){
         console.log("error");
@@ -20,6 +21,11 @@ mongoose.connect("mongodb://localhost/tudu", function(err,res){
         console.log("database running");
     }
 });
+
+// app.use(multer({dest:'./uploads/', rename: function(fieldname,filename){
+//     return filename;
+//     },
+// }))
 
 app.use(express.static("views"));
 app.set("view engine","ejs");
@@ -158,7 +164,7 @@ app.get("/provider/:id",function(req,res){
         else{
             if(foundProvider)
                 
-                res.render("provider-profile",{currentUser : foundProvider});
+                res.render("serviceprovider",{currentUser : foundProvider , imgsrc: false});
             else{
                 console.log("provider not found");
                 res.redirect("/providerloginregister");
@@ -172,8 +178,29 @@ app.post("/provider/:id", upload.single('photo'),function(req,res){
     console.log("No filr rec");
     }
     else{
-    console.log("file rec");
-    console.log(req.file);
+    // console.log("file rec");
+    // console.log(req.file.fieldname);
+    // console.log(req.file.originalname);
+    // console.log(req.file.encoding);
+    // console.log(req.file.mimetype);
+    console.log(req.file.filename);
+    // res.redirect("serviceprovider" ,{imgsrc: req.file.path});
+    // console.log(req.file.destination);
+    // console.log(req.file.path);
+    // console.log(req.file.size);
+    ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
+        if(err)
+            console.log(err);
+        else{
+            if(foundProvider)
+                
+                res.render("serviceprovider",{currentUser : foundProvider , imgsrc: req.file.path});
+            else{
+                console.log("provider not found");
+                res.redirect("/providerloginregister");
+            }
+        }
+    })
     }
 });
 
@@ -223,7 +250,7 @@ app.put("/provider/:id",function(req,res){
 // app.get("/provider/:id/addservice",function(req,res){
 //     console.log(req.params.id);
 //     // res.render("addservice",{providerId :req.params.id});
-// })
+// })   
 app.post("/provider/:id/addservice",function(req,res){
     var service = new Service({
         appliance : req.body.appliance,

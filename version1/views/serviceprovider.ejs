@@ -40,6 +40,13 @@
         <% } %>
     </div>
 
+    <img src="/Service-Project-Repo/version1/uploads/08ab6ed6c84fad6462499ab576fd1893.jpg" alt="kjdsn">
+
+
+    <% if(imgsrc) {%>
+        <img src="../uploads/08ab6ed6c84fad6462499ab576fd1893.jpg" alt="kjdsn">
+        <p> <%= imgsrc %></p>
+        <% } %>
     <h1>Upload Image</h1>
  
 <form action="/provider/<%=currentUser._id%>" method="post" enctype="multipart/form-data">
