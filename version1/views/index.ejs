@@ -86,17 +86,18 @@
                         </ul>
                     </nav>
                     <nav class="site-navigation text-right " id="right-nav" role="navigation">
-                        <!--*************************SEARCH BAR *********************-->
-                        <form action="/" method="GET">
-                            <input type="text" name="search" placeholder="search the service type...">
-                            <input type="submit" value="SUBMIT">
-                        </form>
-                        <!--*********************************************************-->
+                      
                         <ul display="inline" class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                            <li>  <!--*************************SEARCH BAR *********************-->
+                                <form action="/" method="GET">
+                                    <input type="text" name="search" placeholder="search the service type...">
+                                    <input type="submit" value="SUBMIT">
+                                </form>
+                                <!--*********************************************************--></li>
                             <!--this segment is for register,login and logout-->
                             <% if(!currentUser) { %>
                                 <!-- <a href="/register" class="nav-link">REGISTER</a> -->
-                                <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important;">USER LOGIN/REGISTER</a></li>
+                                <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important;">LOGIN/REGISTER</a></li>
 
                                 <% } else { %>
 
@@ -165,7 +166,7 @@
                     </div>
 
                     <div id="homesalon1" class="service2-div ">
-                        <div class="tile">HOME SALON <img src="images/real beautician.png">
+                        <div class="tile">HOME SALON <img src="images/real beautician.png" style="padding-left: 0.5rem;">
                         </div>
                     </div>
                 </div>
