@@ -41,12 +41,14 @@
     </div>
 
     <img src="../../images/person_1.jpg">
+    <!-- <img src="../uploads/1ebf4b999e17cabd2e344d0db0807456"> -->
 
-
-    <% if(imgsrc) {%>
-        <img src= "../../images/real carpenter.png">
-        <p> <%= imgsrc %></p>
+    <!-- /home/anshu/dev/tudu/Service-Project-Repo/version1/views/uploads/1ebf4b999e17cabd2e344d0db0807456 -->
+    <% if(currentUser.imgsrc) {%>
+        <img src= "../uploads/<%= currentUser.imgsrc %>">
+        <p> <%= currentUser.imgsrc %></p>
         <% } %>
+    
     <h1>Upload Image</h1>
  
 <form action="/provider/<%=currentUser._id%>" method="post" enctype="multipart/form-data">

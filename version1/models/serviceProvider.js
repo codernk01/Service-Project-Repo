@@ -10,10 +10,7 @@ var serviceProviderSchema = new mongoose.Schema({
     address: String,
     password: String,
     profession : String,
-    image : {
-        data: Buffer ,
-        contentType : String
-        },
+    imgsrc : String,
     servicesProviding :[
         {
             type : mongoose.Schema.Types.ObjectId,

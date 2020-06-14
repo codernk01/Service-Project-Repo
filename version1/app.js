@@ -164,7 +164,7 @@ app.get("/provider/:id",function(req,res){
         else{
             if(foundProvider)
                 
-                res.render("serviceprovider",{currentUser : foundProvider , imgsrc: false});
+                res.render("serviceprovider",{currentUser : foundProvider});
             else{
                 console.log("provider not found");
                 res.redirect("/providerloginregister");
@@ -178,23 +178,23 @@ app.post("/provider/:id", upload.single('photo'),function(req,res){
     console.log("No filr rec");
     }
     else{
-    // console.log("file rec");
-    // console.log(req.file.fieldname);
-    // console.log(req.file.originalname);
-    // console.log(req.file.encoding);
-    // console.log(req.file.mimetype);
+    
     console.log(req.file.filename);
-    // res.redirect("serviceprovider" ,{imgsrc: req.file.path});
-    // console.log(req.file.destination);
-    // console.log(req.file.path);
-    // console.log(req.file.size);
+    
     ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
         if(err)
             console.log(err);
         else{
             if(foundProvider)
+            {
                 
-                res.render("serviceprovider",{currentUser : foundProvider , imgsrc: req.file.path});
+                ServiceProvider.foundProvider.update(
+                    { imgsrc: req.file.path.match((/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1])
+                    }, function(err,foundProvider){});
+                foundProvider.save();
+                console.log(foundProvider.imgsrc);
+                res.render("serviceprovider",{currentUser : foundProvider });
+            }
             else{
                 console.log("provider not found");
                 res.redirect("/providerloginregister");
