@@ -188,7 +188,7 @@ app.post("/provider/:id", upload.single('photo'),function(req,res){
             if(foundProvider)
             {
                 
-                ServiceProvider.foundProvider.update(
+                foundProvider.update(
                     { imgsrc: req.file.path.match((/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1])
                     }, function(err,foundProvider){});
                 foundProvider.save();
