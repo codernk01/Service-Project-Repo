@@ -40,26 +40,57 @@
         <% } %>
     </div>
 
-    <img src="../../images/person_1.jpg">
-    <!-- <img src="../uploads/1ebf4b999e17cabd2e344d0db0807456"> -->
+    <!--<img src="../../images/person_1.jpg">
+     <img src="../uploads/1ebf4b999e17cabd2e344d0db0807456"> 
 
     <!-- /home/anshu/dev/tudu/Service-Project-Repo/version1/views/uploads/1ebf4b999e17cabd2e344d0db0807456 -->
     <% if(currentUser.imgsrc) {%>
         <img src= "../uploads/<%= currentUser.imgsrc %>">
         <p> <%= currentUser.imgsrc %></p>
-        <% } %>
+        <% } %>-->
     
     <h1>Upload Image</h1>
  
-<form action="/provider/<%=currentUser._id%>" method="post" enctype="multipart/form-data">
-        <input type="file" accept="image/*" name="photo" >
+    <form action="/provider/<%=currentUser._id%>" method="post" enctype="multipart/form-data">
+        <input type="file" accept="image/*" id="file1" name="photo" onchange="readSingleFile(this.files)">
+        
         <input type="submit" value="upload">
-</form>
+    </form>
+
+    <% if(files) { %>
+        <% files.forEach(function(file) {%>
+        <div class="card mb-3">
+            <!--<div class="card-header">
+                <div class="card-title">
+                    <%= file.filename %>
+                </div>
+            </div>-->
+            <div class="card-body">
+                <% if (file.isImage) { %>
+                    <img src="../image/<%= file.filename %>" width="250" alt="" class="img-responsive">
+                <%} else { %>
+                    <p>**<% file.filename %></p>
+                <% } %>
+            </div>
+            <!--<div class="card-footer">
+                <form action="/files/del/<%= file._id %>" method="post">
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </form>
+            </div>-->
+        </div>
+        <%}) %>
+        <% } else { %>
+        <p>No files to show</p>
+        <% } %>
+    <script>
+        function readSingleFile(e) {
+            const name = e[0].name;
+            document.getElementById("file-label").textContent = name;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
 
-<style>
-    #delete {
-        display: inline;
-    }
-</style>

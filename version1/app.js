@@ -8,20 +8,58 @@ var ServiceProvider = require("./models/serviceProvider");
 var Service =require("./models/service");
 var methodOverride = require("method-override");
 var multer= require("multer");
-var upload = multer({dest:'uploads/'});
+//var upload = multer({dest:'uploads/'});
+
+var crypto = require("crypto");
+var path = require("path");
+var GridFsStorage = require("multer-gridfs-storage");
 
 var app = express();
-
-
-mongoose.connect("mongodb://localhost/tudu", function(err,res){
+let gfs;
+const mongoUrl = "mongodb://localhost/tudu";
+mongoose.connect("mongodb://localhost/tudu",{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, function(err,res){
     if(err){
         console.log("error");
     }
     else{
+        
         console.log("database running");
     }
 });
-
+const conn = mongoose.connection;
+//gfs
+conn.once("open", () => {
+  // init stream
+  gfs = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: "uploads"
+  });
+});
+//storage
+const storage = new GridFsStorage({
+    url: mongoUrl,
+    file: (req, file) => {
+      return new Promise((resolve, reject) => {
+        crypto.randomBytes(16, (err, buf) => {
+          if (err) {
+            return reject(err);
+          }
+          const filename = buf.toString("hex") + path.extname(file.originalname);
+          const fileInfo = {
+            filename: filename,
+            bucketName: "uploads"
+          };
+          resolve(fileInfo);
+        });
+      });
+    }
+});
+  
+const upload = multer({
+   storage
+});
 // app.use(multer({dest:'./uploads/', rename: function(fieldname,filename){
 //     return filename;
 //     },
@@ -162,45 +200,88 @@ app.get("/provider/:id",function(req,res){
         if(err)
             console.log(err);
         else{
-            if(foundProvider)
+            if(foundProvider){
+                if(!gfs) {
+                    console.log("some error occured, check connection to db");
+                    res.send("some error occured, check connection to db");
+                    process.exit(0);
+                }
+                gfs.find().toArray((err, files) => {
+                    // check if files
+                    if (!files || files.length === 0) {
+                      return res.render("serviceprovider", {
+                        files: false
+                      });
+                    } else {
+                      const f = files
+                        .map(file => {
+                          if (
+                            file.contentType === "image/png" ||
+                            file.contentType === "image/jpeg"
+                          ) {
+                            file.isImage = true;
+                          } else {
+                            file.isImage = false;
+                          }
+                          return file;
+                        })
+                        .sort((a, b) => {
+                          return (
+                            new Date(b["uploadDate"]).getTime() -
+                            new Date(a["uploadDate"]).getTime()
+                          );
+                        });
                 
-                res.render("serviceprovider",{currentUser : foundProvider});
-            else{
-                console.log("provider not found");
+                        res.render("serviceprovider",{currentUser : foundProvider , files : f});
+                    }
+                });
+            } else{
+                console.log("get-provider not found");
                 res.redirect("/providerloginregister");
             }
         }
     })
 });
 
+app.get("/image/:filename", (req, res) => {
+    // console.log('id', req.params.id)
+    const file = gfs
+      .find({
+        filename: req.params.filename
+      })
+      .toArray((err, files) => {
+        if (!files || files.length === 0) {
+          return res.status(404).json({
+            err: "no files exist"
+          });
+        }
+        gfs.openDownloadStreamByName(req.params.filename).pipe(res);
+    });
+    return file;
+});
 app.post("/provider/:id", upload.single('photo'),function(req,res){
     if(!req.file){
-    console.log("No filr rec");
+        console.log("No filr rec");
     }
     else{
     
-    console.log(req.file.filename);
-    
-    ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
-        if(err)
-            console.log(err);
-        else{
-            if(foundProvider)
-            {
-                
-                foundProvider.update(
-                    { imgsrc: req.file.path.match((/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1])
-                    }, function(err,foundProvider){});
-                foundProvider.save();
-                console.log(foundProvider.imgsrc);
-                res.render("serviceprovider",{currentUser : foundProvider });
-            }
+        console.log(req.file.filename);
+        console.log("id "+req.params.id);
+        ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
+            if(err)
+                console.log(err);
             else{
-                console.log("provider not found");
-                res.redirect("/providerloginregister");
+                if(foundProvider)
+                {
+                    res.redirect("/provider/"+req.params.id);
+                }
+                else{
+                    console.log("post--provider not found");
+                    res.redirect("/providerloginregister");
+                }
             }
-        }
-    })
+        })
+           
     }
 });
 
