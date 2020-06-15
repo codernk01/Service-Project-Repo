@@ -107,7 +107,7 @@ app.get("/",function(req,res){
                 {'username': regex},
                 {'address': regex},
                 {'profession': regex},
-             ]
+            ]
         }).populate("servicesProviding").exec(function(err,data){
             if(err){
                 console.log(err);

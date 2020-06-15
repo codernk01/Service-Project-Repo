@@ -58,28 +58,22 @@
     </form>
 
     <% if(files) { %>
-        <% files.forEach(function(file) {%>
         <div class="card mb-3">
-            <!--<div class="card-header">
-                <div class="card-title">
-                    <%= file.filename %>
-                </div>
-            </div>-->
             <div class="card-body">
-                <% if (file.isImage) { %>
-                    <img src="../image/<%= file.filename %>" width="250" alt="" class="img-responsive">
+                <% if (files[0].isImage) { %>
+                    <img src="../image/<%= files[0].filename %>" width="250" alt="" class="img-responsive">
                 <%} else { %>
-                    <p>**<% file.filename %></p>
+                    <p>**<% files[0].filename %></p>
                 <% } %>
             </div>
             <!--<div class="card-footer">
-                <form action="/files/del/<%= file._id %>" method="post">
+                <form action="/files/del/<%= files[0]._id %>" method="post">
                     <button type="submit" class="btn btn-danger">Remove</button>
                 </form>
             </div>-->
         </div>
-        <%}) %>
-        <% } else { %>
+       
+    <% } else { %>
         <p>No files to show</p>
         <% } %>
     <script>
