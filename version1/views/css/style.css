@@ -686,7 +686,10 @@ h5,
     padding: 0;
     z-index: 3;
 }
-
+.site-logo-tu {
+    width: 3.5rem;
+    padding-bottom: 5px;
+}
 nav {
     display: inline-block;
 }
@@ -706,7 +709,7 @@ nav ul li {
         float: left;
         font-size: 2.5rem;
         padding-top: 8px;
-        top: -1.5rem;
+        top: -2rem;
     }
 }
 
