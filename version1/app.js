@@ -190,7 +190,7 @@ app.post("/providerregister",function(req,res){
 });
 //LOGIN
 app.post("/providerlogin", passport.authenticate("provider-local") ,function(req,res){
-    //console.log(req.user);
+    console.log(req.user);
     res.redirect("/provider/"+req.user._id);
     
 });
