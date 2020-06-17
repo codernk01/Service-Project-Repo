@@ -9,6 +9,22 @@
     
     <div class="leftbox">
         <nav>
+            <% if(files) { %>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <% if (files[0].isImage) { %>
+                            <img src="../image/<%= files[0].filename %>" width="250" alt="" class="img-responsive">
+                        <%} else { %>
+                            <p>**<% files[0].filename %></p>
+                        <% } %>
+                    </div>
+                </div>
+               
+            <% } else { %>
+                <p>Profile image not uploaded</p>
+                <button class="btn"><a href="/provider/<%=currentUser._id%>/edit">Upload Profile Photo</a></button>
+
+                <% } %>
             <a onclick="tabs(0)" class="tab active">
                  <i class="fa fa-user"></i>
                  <span>Personal Info</span>
@@ -60,7 +76,8 @@
                 <p><%= currentUser.profession %></p>
                 
                 <button class="btn"><a href="/provider/<%=currentUser._id%>/edit">UPDATE PROFILE</a></button>
-               
+                
+                
 
                 <!-- <button><a href="/provider/<%=currentUser._id%>/addservice">ADD SERVICES</a></button> -->
                 

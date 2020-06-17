@@ -209,8 +209,9 @@ app.get("/provider/:id",function(req,res){
                 gfs.find().toArray((err, files) => {
                     // check if files
                     if (!files || files.length === 0) {
-                      return res.render("serviceprovider", {
-                        files: false
+                      return res.render("provider-profile", {
+                          currentUser : foundProvider,
+                         files: false
                       });
                     } else {
                       const f = files
@@ -232,7 +233,7 @@ app.get("/provider/:id",function(req,res){
                           );
                         });
                 
-                        res.render("serviceprovider",{currentUser : foundProvider , files : f});
+                        res.render("provider-profile",{currentUser : foundProvider , files : f});
                     }
                 });
             } else{

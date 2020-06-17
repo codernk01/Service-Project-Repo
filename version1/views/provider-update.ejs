@@ -62,6 +62,13 @@
                     <input type="text" value="<%= provider.profession %>" name="provider[profession]">
                     <button class="btn">Save Changes</button>
                 </form>
+                <h1>Upload Image</h1>
+ 
+                            <form action="/provider/<%=provider._id%>" method="post" enctype="multipart/form-data">
+                                <input type="file" accept="image/*" id="file1" name="photo" onchange="readSingleFile(this.files)">
+                                
+                                <input type="submit" value="upload">
+                            </form>
             </div>
 
             <div class="service tabShow">
