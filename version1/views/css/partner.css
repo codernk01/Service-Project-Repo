@@ -300,7 +300,7 @@
     
     .tile {
         text-align: center;
-        width: auto;
+        width: 33.3%;
         padding: 4px;
         contain: content;
         font-size: small;
@@ -315,12 +315,29 @@
     .svg-container1 {
         justify-content: center;
         display: flex;
+        flex-direction: column;
         margin: 2rem 0;
-        background-color: rgba(0, 125, 81, 0.1);
     }
-    
+    .svg-heading
+    {
+      text-align: center;
+        flex-direction: row;
+    }
     .svg-container2 {
+        flex-direction: row;
+        margin: 2rem auto;
         justify-content: space-around;
         width: 75%;
         display: flex;
     }
+    .thumbnail-img .svg-heading
+    {
+        font-size: 1rem;
+        color: #000;
+
+    }
+    .thumbnail-img .svg-content
+    {
+        color: #555;
+        margin: 0 10%;
+        }
