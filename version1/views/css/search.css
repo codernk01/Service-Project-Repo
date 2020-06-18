@@ -6,7 +6,16 @@ body {
     text-rendering: optimizeLegibility;
     font-family: axiforma-regular, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
+h2, h4{
+    color: black !important;
+    padding: 2px !important;
+    margin: 0rem !important;
+}
 
+p {
+    padding: 2px !important;
+    margin: 0rem !important;
+}
 .site-navbar {
     background-color: #2f3337;
     -webkit-transition: .3s all ease;
@@ -101,35 +110,37 @@ body {
     }
 }
 .serve-card-image {
-    width: auto;
-    height: auto;
-    display: flex;
-    padding: 5px;
-    justify-content: center;
-    flex-direction: column;
+    width: auto  !important;
+    height: auto  !important;
+    display: flex  !important;
+    padding: 5px  !important;
+    justify-content: center  !important;
+    flex-direction: column  !important;
 }
 .serve-card-content
 {
 
-    flex-direction: column;
-    color: rgb(65, 66, 66);
+    flex-direction: column  !important;
+    color: rgb(65, 66, 66)  !important;
 }
 #star-btn {
-    padding: .5rem .4rem;
-    font-size: .875rem;
-    line-height: .5;
-    border-radius: .2rem;
+    padding: .5rem .4rem  !important;
+    font-size: .875rem  !important;
+    line-height: .5  !important;
+    border-radius: .2rem  !important;
+    color: white  !important;
+    width: auto  !important;
   }
   .serve-collection
   {
-      flex-direction: row;
+      flex-direction: row  !important;
   }
 .serve-card-buton
 {
-    margin-top: 3px;
+    margin-top: 3px  !important;
 }
 .serve-card-image img {
-    height: 12rem;
+    height: 12rem  !important;
 }
 img {
     vertical-align: middle;
@@ -164,7 +175,6 @@ img {
     margin: 0 auto;
 }
 .BZR3j {
-    font-weight: 600;
     font-size: 28px;
     -ms-flex: 1;
     flex: 1;
@@ -176,7 +186,7 @@ img {
     align-items: center;
 }
 ._3Ynv- {
-    margin-top: 9px;
+    margin-top: -1px;
 }
 ._2-ofZ:hover, ._3hfyI {
     color: #3d4152;
@@ -423,23 +433,24 @@ a {
 }
 
 .btn {
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: 700;
-    text-align: center;
-    vertical-align: middle;
-    touch-action: manipulation;
-    text-decoration: none;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    padding: 11px 12px;
+    width: 105px  !important;
+    display: inline-block  ;
+    margin-bottom: 0 ;
+    font-weight: 700  ;
+    text-align: center ;
+    vertical-align: middle ;
+    touch-action: manipulation ;
+    text-decoration: none ;
+    cursor: pointer ;
+    background-image: none ;
+    border: 1px solid transparent ;
+    white-space: nowrap ;
+    padding: 11px 12px ;
     font-size: 15px;
-    line-height: 1.35135;
-    border-radius: 2px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    line-height: 1.35135  ;
+    border-radius: 2px  ;
+    -webkit-user-select: none ;
+    -moz-user-select: none ;
+    -ms-user-select: none ;
+    user-select: none ;
 }
