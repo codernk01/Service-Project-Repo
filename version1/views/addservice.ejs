@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/provider/<%=providerId%>/addservice" method="POST">
+        <li>CHOOSE TYPE OF SERVICE</li>
+        <input type="text" class="input" autocomplete="off" name="type" placeholder="Choose type of service">
+        <li>YOUR SERVICE IS RELATED TO :</li>
+        <input type="text" class="input" autocomplete="off" name="appliance" placeholder="Your service is related to">
+        <li>DESCRIBE YOUR SERVICE</li>
+        <input type="text" class="input" autocomplete="off" name="description" placeholder="Describe your service">
+        <li>ENTER THE PRICE OF THE SERVICE</li>
+        <input type="number" class="input" autocomplete="off" name="price" placeholder="Price"><br>
+        <button class="click">ADD SERVICE</button>
+    </form>
+</body>
+</html>

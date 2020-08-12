@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="../css/update.css">
+</head>
+<body>
+    
+    <div class="leftbox">
+        <nav>
+            <% if(files) { %>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <% if (files[0].isImage) { %>
+                            <img src="../image/<%= files[0].filename %>" width="210" style="padding: 12px" alt="" class="img-responsive">
+                        <%} else { %>
+                            <p>**<% files[0].filename %></p>
+                        <% } %>
+                    </div>
+                </div>
+               
+            <% } else { %>
+                <p>Profile image not uploaded</p>
+                <button class="btn"><a href="/provider/<%=currentUser._id%>/edit">Upload Profile Photo</a></button>
+
+                <% } %>
+            <a onclick="tabs(0)" class="tab active">
+                 <i class="fa fa-user"></i>
+                 <span>Personal Info</span>
+                 
+            </a>
+            <a onclick="tabs(1)" class="tab" >
+                <i class="fa fa-credit-card"></i>
+                <span>Your Services</span>
+                
+            </a>
+            <a onclick="tabs(2)" class="tab">
+                <i class="fa fa-credit-card"></i>
+                <span>Payment Info</span>
+                
+            </a>
+            <a onclick="tabs(3)" class="tab">
+                <i class="fa fa-tv"></i>
+                <span>Subscription Info</span>
+                
+            </a>
+            <a onclick="tabs(4)" class="tab">
+                <i class="fa fa-tasks"></i>
+                <span> Privacy Settings</span>
+               
+            </a>
+            <a onclick="tabs(5)" class="tab">
+                <i class="fa fa-cog"></i>
+                <span> Account Settings</span>
+               
+            </a>
+        </nav>
+    </div>
+    
+
+        <div class="rightbox">
+            <div class="profile tabShow">
+                <h2>Welcome <%=currentUser.firstname %></h2>
+                
+                <h1>Personal Info</h1>
+                <h2>Full Name</h2>
+                <p><%= currentUser.firstname %> <%= currentUser.lastname %></p>
+                <h2>Phone Number</h2>
+                <p><%= currentUser.phone_no%></p>
+                <h2>Email</h2>
+                <p> <%=currentUser.username%></p>
+                <h2>Address</h2>
+                <p><%= currentUser.address %></p>
+                <h2>Profession</h2>
+                <p><%= currentUser.profession %></p>
+                
+                <button class="btn"><a href="/provider/<%=currentUser._id%>/edit">UPDATE PROFILE</a></button>
+                
+                
+
+                <!-- <button><a href="/provider/<%=currentUser._id%>/addservice">ADD SERVICES</a></button> -->
+                
+
+            </div>
+            
+            <div class="service tabShow">
+                <div>
+                    <h4>YOUR SERVICES</h4>
+                    <% if(currentUser.servicesProviding) {%>
+                        <% currentUser.servicesProviding.forEach(function(service){ %>
+                            <ul>RELATED TO :<%= service.appliance%></ul>
+                            <ul>DESCRIPTION :<%= service.description%></ul>
+                            <ul>PRICE :<%= service.price%></ul>
+                            <div>
+                                <button><a href="/provider/<%=currentUser._id%>/<%=service._id%>/edit">UPDATE</a></button>
+                                <form action="/provider/<%=currentUser._id%>/<%=service._id%>/delete?_method=DELETE" method="POST">
+                                    <button >DELETE</button>
+                                </form>
+                            </div>
+                            <hr>
+                        <% }) %>
+                    <% }else { %>
+                        <li>YOU DONT HAVE ANY SERVICES YET </li>
+                    <% } %>
+                </div>
+                <h1>Add more services</h1>
+                <form action="/provider/<%=currentUser._id%>/addservice" method="POST">
+                    
+                    <li>YOUR SERVICE IS RELATED TO :</li>
+                    <input type="text" class="input" autocomplete="off" name="appliance" placeholder="Your service is related to">
+                    <li>DESCRIBE YOUR SERVICE</li>
+                    <input type="text" class="input" autocomplete="off" name="description" placeholder="Describe your service">
+                    <li>ENTER THE PRICE OF THE SERVICE</li>
+                    <input type="number" class="input" autocomplete="off" name="price" placeholder="Price"><br>
+                    <button class="click">ADD SERVICE</button>
+                </form>
+                <p>Hey there</p>
+            </div>
+
+
+            <div class="payment tabShow">
+                <h1>Payment Info</h1>
+                <h2>Payment Method</h2>
+                <p>MasterCard - 0202 **** **** 3245</p>
+                <h2>Billing Address</h2>
+                <p>House no.235 Chandni Chowk,Delhi</p>
+                <h2>PinCode</h2>
+                <p>234005</p>
+                <h2>Billing Date</h2>
+                <p>5/1/2018</p>
+                <h2>Redeem Card</h2>
+                <p>Enter Gift Code</p>
+                <button class="btn">update</button>
+            </div>
+            <div class="subscription tabShow">
+                <h1>Subscription Info</h1>
+                <h2>Payment Date</h2>
+                <p>12/05/2019</p>
+                <h2>Next Charges</h2>
+                <p>Rs.800<span>includes tax</span></p>
+                <h2>Plan</h2>
+                <p>Limited Plan</p>
+                <h2>Monthly Payment</h2>
+                <p>Rs.300/month</p>
+                <button class="btn">update</button>
+            </div>
+            <div class="privacy tabShow">
+                <h1>Privacy Settings</h1>
+                <h2>Manage Email Noti.</h2>
+                <p></p>
+                <h2>Manage Privacy Settings</h2>
+                <p></p>
+                <h2>Veiw Terms Of Use</h2>
+                <p></p>
+                <h2>Personalized Ad Experience</h2>
+                <p></p>
+                <h2>Protect Account</h2>
+                <p></p>
+                <button class="btn">update</button>
+            </div>
+            <div class="settings tabShow">
+                <h1>Account Settings</h1>
+                <h2>Sync Watchlist</h2>
+                <p></p>
+                <h2>Hold Subcription</h2>
+                <p></p>
+                <h2>Cancel Subscription</h2>
+                <p></p>
+                <h2>Your Devices</h2>
+                <p></p>
+                <h2>Refferals</h2>
+                <p></p>
+                <button class="btn">update</button>
+            </div>
+        </div>
+    
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/update.js"></script>
+</body>
+</html>

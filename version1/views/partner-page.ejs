@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <title>Partner Page</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="css/partner.css">
+</head>
+
+<body data-gr-c-s-loaded="true" cz-shortcut-listen="true" data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div style="height: 100%;">
+        <header class="site-navbar js-sticky-header site-navbar-target" style="height: 4.5rem; width: 100%;" role="banner">
+
+            <div class="row align-center position-relative">
+                <div class="site-logo">
+                    <a href="/"><i class="fas fa-check-square"></i><span id="my-logo">TUDU</span></a>
+                </div>
+            </div>
+            <div class="row align-items-center position-relative">
+                <div class="col-12">
+                    <nav class="site-navigation text-left ml-auto " role="navigation">
+
+                        <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+
+
+                            <li><a href="#about-section" class="nav-link">About Us</a></li>
+
+                        </ul>
+                    </nav>
+                    <nav class="site-navigation text-right " id="right-nav" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                            <!--this segment is for register,login and logout-->
+
+                            <!-- <a href="/register" class="nav-link">REGISTER</a> -->
+                            <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important;padding-right: 4rem;">USER LOGIN/REGISTER</a></li>
+
+
+                            <!--.........-->
+                            <!--<li><a href="#blog-section" class="nav-link">Blog</a></li>-->
+                            <!--<li><a href="#contact-section" class="nav-link">Contact</a></li>-->
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="toggle-button d-inline-block d-lg-none" style="padding-top: 10px !important;"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="Partner-section container-fluid">
+                <div class="Partner-display-section ">
+                    <div class="Partner-content-section">
+                        <h1>Earn More. Earn Respect. Safety Ensured.</h1>
+                        <p>Join TUDU Partners across India to Get online and Earn more.</p>
+                        <div><a href="/providerloginregister" class="partner-btn btn btn-primary">Become a Partner</a>
+                        </div>
+                    </div>
+                    <div class="Partner-image-section">
+                        <div class="Partner-image-template">
+                            <!----insert a image thrugh image tag--->
+                            <form class="partner-form shadow p-3 mb-5 bg-white rounded" action="/providerlogin" method="POST">
+
+                                <h3>Already a partner? login...</h3>
+                                <br>
+                                <!-- <div class="form-group">
+                                    <label for="user_login">Email address</label>
+                                    <input type="email" class="form-control input" id="user_login" aria-describedby="emailHelp">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="user_pass">Password</label>
+                                    <input type="password" class="form-control input" id="user_pass">
+                                </div>
+                                <button class="btn btn-primary">login</button> -->
+                                <input type="email" class="input" id="user_login" autocomplete="off" name="username" placeholder="Email">
+                                <br>
+                                <input type="password" class="input" id="user_pass" autocomplete="off" name="password" placeholder="Password">
+                                <br>
+                                <button>Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="svg-container1">
+        <div class="svg-heading">
+            <h1>Why Serve on TUDU</h1>
+        </div>
+        <div class="row svg-container2">
+            <div class="col-xs-4 thumbnail-img tile">
+                <img src="images/diagram.svg" alt="">
+                <p class="svg-heading">Potential Growth</p>
+                <p class="svg-content">Earn more by growing your service online.Get your funds safely deposited to your bank account.</p>
+            </div>
+            <div class="col-xs-4 thumbnail-img tile">
+                <img src="images/network.svg" alt="">
+                <p class="svg-heading">More Customers</p>
+                <p class="svg-content">Get more bookings by increasing your customer reach and advertising your business online.</p>
+            </div>
+            <div class=" col-xs-4 thumbnail-img tile">
+                <img src="images/safe.svg" alt="">
+                <p class="svg-heading">Safety Ensured</p>
+                <p class="svg-content">Your Personal and Payment safety is at our utmost priority.</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>

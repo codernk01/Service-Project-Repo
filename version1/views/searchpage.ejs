@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%if(results){%>
+        <% results.forEach(function(result){%>
+            <ul>SERVICES PROVIDING : <%result.servicesProviding.forEach(function(s){%>
+                <ul><%=s.appliance%>  </ul>
+                <ul><%=s.description%>  </ul>
+                <ul><%=s.price%>  </ul>
+                <ul>*********************</ul>
+            <%})%>
+            </ul>
+            <ul>NAME : <%= result.firstname%> <%= result.lastname %></ul>
+            <ul>ADDRESS : <%= result.address%></ul>
+            <ul>EMAIL :<%= result.username%></ul>
+            <ul>PROFESSIOON :<%= result.profession%></ul>
+            <hr>
+        <%})%>
+    <% } else { %>
+        <h2> NO SEARCH RESULTS </h2>
+    <% } %>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Welcome <%=currentUser.firstname %></h2>
+    <button><a href="/logout">LOGOUT</a></button>
+    
+    <div>SERVICE PROVIDER PAGE</div>
+    <div>
+        <li>NAME : <%= currentUser.firstname %>  
+        </li>
+        <li>PHONE NUMBER : <%= currentUser.phone_no%> </li>
+        <li>EMAIL : <%=currentUser.username%></li>
+        <li>ADDRESS : <%= currentUser.address %></li>
+        <button><a href="/provider/<%=currentUser._id%>/edit">UPDATE PROFILE</a></button>
+    </div>
+    <button><a href="/provider/<%=currentUser._id%>/addservice">ADD SERVICES</a></button>
+    <div>
+        <h4>YOUR SERVICES</h4>
+        <% if(currentUser.servicesProviding) {%>
+            <% currentUser.servicesProviding.forEach(function(service){ %>
+                <ul>SERVICE TYPE : <%= service.type%></ul>
+                <ul>RELATED TO :<%= service.appliance%></ul>
+                <ul>DESCRIPTION :<%= service.description%></ul>
+                <ul>PRICE :<%= service.price%></ul>
+                <div>
+                    <button><a href="/provider/<%=currentUser._id%>/<%=service._id%>/edit">UPDATE</a></button>
+                    <form action="/provider/<%=currentUser._id%>/<%=service._id%>/delete?_method=DELETE" method="POST">
+                        <button >DELETE</button>
+                    </form>
+                </div>
+                <hr>
+            <% }) %>
+        <% }else { %>
+            <li>YOU DONT HAVE ANY SERVICES YET </li>
+        <% } %>
+    </div>
+    
+    <h1>Upload Image</h1>
+ 
+    <form action="/provider/<%=currentUser._id%>" method="post" enctype="multipart/form-data">
+        <input type="file" accept="image/*" id="file1" name="photo" onchange="readSingleFile(this.files)">
+        
+        <input type="submit" value="upload">
+    </form>
+
+    <% if(files) { %>
+        <div class="card mb-3">
+            <div class="card-body">
+                <% if (files[0].isImage) { %>
+                    <img src="../image/<%= files[0].filename %>" width="250" alt="" class="img-responsive">
+                <%} else { %>
+                    <p>**<% files[0].filename %></p>
+                <% } %>
+            </div>
+        </div>
+       
+    <% } else { %>
+        <p>No files to show</p>
+        <% } %>
+    <script>
+        function readSingleFile(e) {
+            const name = e[0].name;
+            document.getElementById("file-label").textContent = name;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+

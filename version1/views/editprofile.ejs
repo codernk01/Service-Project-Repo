@@ -1,0 +1,57 @@
+<h2>Edit service provider profile</h2>
+
+<form style="display:block" action="/provider/<%=provider._id%>?_method=PUT" method="POST" enctype="multipart/form-data" >
+    <div class="form-group">
+        <label class="clg-lg-3" > 
+                First Name:
+        </label>
+        <div class="clg-lg-8" >
+            <input class="form-control" value="<%= provider.firstname %>" name="provider[firstname]">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="clg-lg-3" > 
+                Last Name:
+        </label>
+        <div class="clg-lg-8" >
+            <input class="form-control" value="<%= provider.lastname %>" name="provider[lastname]">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="clg-lg-3" > 
+                Email:
+        </label>
+        <div class="clg-lg-8">
+            <input class="form-control" value="<%= provider.username %>" name="provider[username]">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="clg-lg-3" > 
+                Phone no:
+        </label>
+        <div class="clg-lg-8">
+            <input class="form-control" value="<%= provider.phone_no %>" name="provider[phone_no]">
+        </div>
+    </div><div class="form-group">
+        <label class="clg-lg-3" > 
+                Address:
+        </label>
+        <div class="clg-lg-8">
+            <input class="form-control" value="<%= provider.address %>" name="provider[address]">
+        </div>
+    </div> 
+
+    <h1>Upload Image</h1>
+    <input type="file" accept="image/*" name="photo" >
+    <!-- <input type="submit" value="upload"> -->
+
+    <button>SUBMIT</button>
+</form>
+
+
+ 
+<!-- <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" accept="image/*" name="photo" >
+        <input type="submit" value="upload">
+</form>
+        -->

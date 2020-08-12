@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>progress bar</title>
+    <link rel="stylesheet" href="css/progressbar.css">
+    <script src="https://kit.fontawesome.com/5aa5fc357e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <input type="radio" checked name="bright" class="profile">
+        <input type="radio" name="bright" class="settings">
+        <input type="radio" name="bright" class="posts">
+        <input type="radio" name="bright" class="books">
+        <div class="head">
+            <ul class="nav">
+                <li class="st st1 active"></li>
+                <li class="st st2"></li>
+                <li class="st st3"></li>
+                <li class="st st4"></li>
+                <!-- <h2 class="inner">Books</h2> -->
+            </ul>
+            <div class="line">
+                <span></span>
+            </div>
+        </div>
+        <div class="content">
+            <section class="profile-section">
+                <h1> Personal Info </h1>
+                <form>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="formGroupExampleInput">Full Name</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your Full name">
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group ">
+                        <label for="Address">Address</label>
+                        <textarea class="form-control" id="Address" rows="4" placeholder="enter your address"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="form-group col-md-4" style="margin-left:10px;">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control">
+                      <option selected>Choose...</option>
+                      <option>Delhi(NCR)</option>
+                      <option>Gujarat</option>
+                      <option>Rajasthan</option>
+                      <option>Uttar Pradesh</option>        
+                    </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputZip">Pincode</label>
+                            <input type="text" class="form-control" id="inputZip">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </section>
+            <section class="settings-section">
+                <h1>Payment-method</h1>
+
+            </section>
+            <section class="posts-section">
+                <span><i class="fas fa-house-user"></i></span>
+                <h1>posts-SECTION</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo adipisci perspiciatis doloremque dolores nisi eligendi praesentium vitae voluptatem voluptas tempora molestiae, voluptatum iusto facilis! Corrupti necessitatibus voluptatibus
+                    asperiores vero quos?
+                </p>
+            </section>
+            <section class="books-section">
+                <span><i class="fas fa-house-user"></i></span>
+                <h1>terms and conditions</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo adipisci perspiciatis doloremque dolores nisi eligendi praesentium vitae voluptatem voluptas tempora molestiae, voluptatum iusto facilis! Corrupti necessitatibus voluptatibus
+                    asperiores vero quos?
+                </p>
+            </section>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="js/progressbar.js"></script>
+</body>
+
+</html>
