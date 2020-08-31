@@ -89,12 +89,12 @@
 
                         <ul display="inline" class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                             <li>
-                                <!--*************************SEARCH BAR *********************-->
+                                <!--*************************SEARCH BAR *********************
                                 <form action="/" method="GET">
                                     <input type="text" name="search" placeholder="search the service type...">
                                     <input type="submit" value="SUBMIT">
                                 </form>
-                                <!--*********************************************************-->
+                                *********************************************************-->
                             </li>
                             <!--this segment is for register,login and logout-->
                             <% if(!currentUser) { %>
@@ -159,6 +159,17 @@
 
 
         <div id="ourservice-container" class="container">
+             <!--*************************SEARCH BAR *********************-->
+            <form action="/" method="GET">
+            <div class="input-group" style="padding-top: 20px;">
+                <input type="text" class="form-control" placeholder="Search the service" name="search" >
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
             <div class="container-section-row  d-flex">
 
                 <div class="div">

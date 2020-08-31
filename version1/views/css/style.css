@@ -707,7 +707,7 @@ nav ul li {
 @media (max-width: 991.98px) {
     .site-navbar .site-logo {
         float: left;
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         padding-top: 8px;
         top: -2rem;
     }
@@ -1302,7 +1302,7 @@ nav ul li {
 
 #ourservice-container {
     background-color: #fff;
-    top: -3.8rem;
+    top: -5.5rem;
     position: relative;
     z-index: 2;
     margin: 0 auto!important;
