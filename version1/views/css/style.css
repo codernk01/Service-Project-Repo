@@ -838,7 +838,7 @@ nav ul li {
     max-width: fit-content
 }
 
-.site-navbar .site-navigation .site-menu .has-children .dropdown>li>a:hover {
+.site-navbar .site-navigation .site-menu .has-children .dropdown>li:hover {
     background: #f8f9fa;
     color: #ced4da;
 }
