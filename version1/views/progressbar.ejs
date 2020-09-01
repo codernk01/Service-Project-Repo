@@ -30,12 +30,24 @@
         <div class="content">
             <section class="profile-section">
                 <h1> Personal Info </h1>
-                <form>
+                <form action="/register" method="POST">
 
                     <div class="form-row">
-                        <div class="form-group col">
-                            <label for="formGroupExampleInput">Full Name</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your Full name">
+                        <div class="form-group col-6">
+                            <label for="formGroupExampleInput">First Name</label>
+                            <input type="text" class="form-control" id="user_fname" autocomplete="off" name="firstname" placeholder="Enter First Name" >
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="formGroupExampleInput">Last Name</label>
+                            <input type="text" class="form-control" id="user_lname" autocomplete="off" name="lastname" placeholder="Enter Last Name" >
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="formGroupExampleInput">Email</label>
+                            <input type="text" class="form-control" id="user_email" autocomplete="off" name="username" placeholder="Enter Email" >
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="formGroupExampleInput">Password</label>
+                            <input type="password" class="form-control" id="user_[pass]" autocomplete="off" name="password" placeholder="Enter Password" >
                         </div>
                     </div>
 
@@ -43,16 +55,16 @@
 
                     <div class="form-group ">
                         <label for="Address">Address</label>
-                        <textarea class="form-control" id="Address" rows="4" placeholder="enter your address"></textarea>
+                        <textarea class="form-control" rows="4" id="user_add" autocomplete="off" name="address" placeholder="Enter Your Address"></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity">
+                            <input type="text" class="form-control" id="user_city" autocomplete="off" name="city" placeholder="City">
                         </div>
                         <div class="form-group col-md-4" style="margin-left:10px;">
                             <label for="inputState">State</label>
-                            <select id="inputState" class="form-control">
+                            <select class="form-control" id="user_state" autocomplete="off" name="state" placeholder="State">
                       <option selected>Choose...</option>
                       <option>Delhi(NCR)</option>
                       <option>Gujarat</option>
@@ -62,7 +74,7 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label for="inputZip">Pincode</label>
-                            <input type="text" class="form-control" id="inputZip">
+                            <input type="text" class="form-control" id="user_pin" autocomplete="off" name="pincode" placeholder="Pnicode">
                         </div>
                     </div>
 

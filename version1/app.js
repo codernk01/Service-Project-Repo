@@ -130,7 +130,11 @@ app.post("/register",function(req,res){
     var newUser= new User({
         username: req.body.username, 
         firstname:req.body.firstname,
-        lastname: req.body.lastname
+        lastname: req.body.lastname,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        pincode: req.body.pincode,
         });
     User.register(newUser,req.body.password,function(err,user){
         if(err){
@@ -146,8 +150,8 @@ app.post("/register",function(req,res){
 });
 
 app.get("/loginregister",function(req,res){
-   // console.log(req.user);
-    res.render("login_register");
+    //console.log("Ams");
+    res.render("progressbar");
 });
 
 app.post("/login", passport.authenticate("local") ,function(req,res){

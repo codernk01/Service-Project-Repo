@@ -7,6 +7,10 @@ var userSchema = new mongoose.Schema({
     lastname : String,
     username : String,  //email
     password : String,
+    address : String,
+    pincode : String,
+    city : String,
+    state: String,
     pastServices : [
         {
             type: mongoose.Schema.Types.ObjectId,
