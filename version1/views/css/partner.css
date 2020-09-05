@@ -363,3 +363,361 @@
             cursor: pointer;
             background-color: #1c8adb;
         }
+        .eeEasyStepsSectionBody {
+            display: table;
+            border-spacing: 0px 0px;
+            width: 80%;
+            margin: 3rem auto;
+        }
+        
+        @media (max-width: 767px) {
+            .eEasyStepsSectionBody,
+            .eeEasyStepsSectionBody {
+                display: block;
+            }
+        }
+        
+        .eeRow {
+            display: table-row;
+        }
+        
+        @media (max-width: 767px) {
+            .eeRow {
+                display: block;
+                text-align: center;
+            }
+        }
+        
+        .eeEasyStepsSectionBody .eeCell.eeLeft,
+        .eeEasyStepsSectionBody .eeCell.eeRight {
+            width: 50%;
+            vertical-align: middle;
+        }
+        
+        .eeEasyStepsSectionBody .eeCell {
+            text-align: left;
+            vertical-align: middle;
+            padding: 40px;
+        }
+        
+        .eeCell {
+            display: table-cell;
+        }
+        
+        @media (max-width: 767px) {
+            .eeCell {
+                display: block;
+                width: 100% !important;
+                text-align: center !important;
+            }
+        }
+        
+        .eeEasyStepsSectionBody .eeCell.eeRight {
+            text-align: right;
+        }
+        
+        .eeEasyStepsSectionBody .eeCell.eeLeft,
+        .eeEasyStepsSectionBody .eeCell.eeRight {
+            width: 50%;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 767px) {
+            .eeReversedRow {
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .eeReversedRow .eeCell {
+                -webkit-order: 2;
+                -ms-flex-order: 2;
+                order: 2;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .eeReversedRow .eeCell.eeRight {
+                -webkit-order: 1;
+                -ms-flex-order: 1;
+                order: 1;
+            }
+        }
+        
+        .eeEasyStepsSectionBody .eeTitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .eeTitle {
+            font-family: "Cera Pro", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+            color: #303236;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            line-height: normal;
+        }
+        
+        .eeEasyStepsSectionBody .eeText {
+            font-size: 1rem;
+        }
+        
+        .how-header {
+            color: #0a0f14;
+            font-family: "Cera Pro", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+        }
+        
+        .style-two {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+        }
+        
+        .eeText {
+            color: #6a6d75;
+            font-family: "Cera Pro", "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+        }
+        
+        .eeEasyStepsSectionBody .eeImage svg {
+            width: 20rem;
+            height: 10rem;
+        }
+
+        .home-page-section {
+            position: relative;
+            margin-bottom: 70px;
+            text-align: center;
+        }        
+        .verti-line {
+            background: #3ACC6C;
+            position: absolute;
+            height: 100%;
+            z-index: -1;
+            width: 2px;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 4px auto;
+        }
+        @media screen and (max-width: 767px)
+        {.verti-line {
+            display: none;
+        }
+        }
+
+
+        .row {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+        .pos-rel {
+            position: relative;
+        }
+        .textAlineRight {
+            text-align: right;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 55%;
+        }
+        .center {
+            text-align: center;
+        }
+        .middleImageSteps {
+            text-align: center;
+        }
+        .middleImageSteps img{
+            width: 60px;
+        }
+        @media screen and (max-width: 767px)
+        { .middleImageSteps img
+        {
+            display: none;
+        }
+        }
+        @media screen and (max-width: 767px)
+        { .noDisplayInMob img
+        {
+            display: none;
+        }
+        }
+        @media screen and (max-width: 767px)
+        { .sellingText
+        {
+            text-align: left!important;
+        }
+        }
+        .sellingText {
+            text-align: left;
+        }
+        .sellingText {
+            font-size: 18px;
+            color: #000;
+        }
+        .sellingText span {
+            margin-left: 15px;
+        }
+        .sellingText span {
+            font-size: 23px;
+            display: block;
+            color: #007D51;
+        }
+        .cus-pd {
+            padding: 10px 40px 60px 15px;
+        }
+        .sellingText li {
+            color: #999;
+            margin-left: 20px;
+        }
+        
+        .mb-10 {
+            margin-bottom: 10px !important;
+        }
+        .sellingText li span {
+            font-size: 16px;
+            color: #999;
+            margin: 0;
+        }
+        #home-page .sellingText span {
+            margin-left: 15px;
+        }
+        .textAlineLeft {
+            text-align: left;
+        }
+
+        h1.sellingOnSnapdeal {
+            font-size: 40px;
+            color: #333;
+            margin: 0 0 70px 0;
+            padding: 0;
+        }
+
+
+
+.ud-component--teach-page--app {
+    white-space: pre-line;
+    height: 500px;
+}
+.here-to-help {
+    background: #505763 url(../images/service1.jpg) center center no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+
+.bg-image {
+    color: #fff;
+}
+.here-to-help .container {
+    padding-top: 55px;
+    padding-bottom: 70px;
+}
+
+@media (min-width: 1200px)
+{
+    .here-to-help .container {
+    width: 1170px;
+}}
+@media (min-width: 992px)
+{.here-to-help .container {
+    width: 970px;
+}}
+@media (min-width: 768px)
+{.here-to-help .container {
+    width: 750px;
+}}
+.here-to-help .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-width: 320px;
+}
+ .here-to-help .small-content {
+    max-width: 750px;
+}
+ .small-content {
+    max-width: 510px;
+}
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+ .text-shadow {
+    text-shadow: 0 2px 4px rgba(41,48,59,.5);
+}
+
+ .title {
+    margin-top: -10px;
+    text-align: center;
+}
+.here-to-help .subtext {
+    font-size: 20px;
+    line-height: 29px;
+    padding: 100px 0;
+}
+.subtext {
+    font-weight: 400;
+}
+ .text-shadow {
+    text-shadow: 0 2px 4px rgba(41,48,59,.5);
+}
+.text-center {
+    text-align: center;
+}
+@media screen and (max-width: 767px)
+{ .small-content h1
+{
+    font-size: 1.5rem;
+    margin-top: -60px;
+}
+}
+@media screen and (max-width: 767px)
+{ .small-content .subtext
+{
+    font-size: 1rem;
+    line-height: 25px;
+}
+}
+.channels--teach .discovery-unit-container>.unit-wrapper:nth-of-type(even) {
+    background: #fff;
+}
+.ud-component--teach-page--app {
+    white-space: pre-line;
+}
+.channels--teach .container {
+    padding-top: 55px;
+    padding-bottom: 70px;
+}
+
+.teaching-signup-button--cta--fMxEG {
+    padding: 17px 60px;
+}
+.become-instructor h1{
+    font-size: 36px;
+    font-weight: 400;
+    margin-top: 21px;
+    margin-bottom: 10.5px;
+    line-height: 1.1;
+    color: inherit;
+}
+.become-instructor h3
+{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 21px;
+    margin-bottom: 10.5px;
+    line-height: 1.1;
+    color: inherit;
+}

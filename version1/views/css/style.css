@@ -745,10 +745,6 @@ nav ul li {
     text-transform: uppercase;
 }
 
-.site-navbar .site-navigation .site-menu>li>a:hover {
-    color: #ff6600;
-}
-
 .site-navbar .site-navigation .site-menu .has-children {
     position: relative;
 }
