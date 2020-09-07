@@ -316,7 +316,6 @@
         justify-content: center;
         display: flex;
         flex-direction: column;
-        margin: 2rem 0;
     }
     .svg-heading
     {
@@ -606,7 +605,6 @@
 
 .ud-component--teach-page--app {
     white-space: pre-line;
-    height: 500px;
 }
 .here-to-help {
     background: #505763 url(../images/service1.jpg) center center no-repeat;
@@ -720,4 +718,84 @@
     margin-bottom: 10.5px;
     line-height: 1.1;
     color: inherit;
+}
+
+.gradient-2,
+.site-footer,
+.top-bar {
+    background: #35EAB6;
+    background-image: linear-gradient(to left top, #35eab6, #31e1ac, #2dd7a1, #28ce97, #24c58d, #20bc85, #1cb37c, #17aa74, #129f6b, #0c9362, #058859, #007d51);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#35EAB6', endColorstr='#007D51', GradientType=1);
+}
+
+.site-footer {
+    padding: 4em 0;
+}
+
+.site-footer .border-top {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.site-footer p {
+    color: #fff;
+}
+
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5 {
+    color: #fff;
+}
+
+.site-footer a {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.site-footer a:hover {
+    color: white;
+}
+
+.site-footer ul li {
+    margin-bottom: 10px;
+}
+
+.site-footer .footer-heading {
+    font-size: 16px;
+    color: #fff;
+}
+
+.footer-suscribe-form .form-control {
+    color: #000;
+}
+
+.footer-suscribe-form .form-control:hover,
+.footer-suscribe-form .form-control:active,
+.footer-suscribe-form .form-control:focus {
+    color: #000 !important;
+}
+
+.footer-suscribe-form .btn {
+    background: #7a5e86;
+    color: #fff;
+    border-color: #7a5e86;
+}
+
+.footer-suscribe-form .btn :hover {
+    background: #1eb980 !important;
+    color: #fff;
+    border-color: #7a5e86;
+}
+
+.icon-linkedin:before {
+    content: "\f0e1";
+}
+
+a:hover, a:active {
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.site-logo-tu {
+    width: 3.5rem;
+    padding-bottom: 5px;
 }
