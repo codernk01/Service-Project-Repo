@@ -16,16 +16,16 @@ var GridFsStorage = require("multer-gridfs-storage");
 
 var app = express();
 let gfs;
-const mongoUrl = "mongodb://localhost/tudu";
-mongoose.connect("mongodb://localhost/tudu",{
+const mongoUrl = "mongodb+srv://dbUser:dbUserPassword@cluster0.zlrwe.gcp.mongodb.net/test";
+mongoose.connect(mongoUrl,{
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, function(err,res){
     if(err){
-        console.log("error");
+        console.log("error:", err);
     }
     else{
-        
+
         console.log("database running");
     }
 });
@@ -56,7 +56,7 @@ const storage = new GridFsStorage({
       });
     }
 });
-  
+
 const upload = multer({
    storage
 });
@@ -96,28 +96,99 @@ app.use(function(req,res,next){
     next();
 });
 
+// const populate = (prov)=>{
+//   return new Promise(function(resolve, reject) {
+//
+//     var servicefinders = [];
+//     prov.servicesProviding.forEach((id, i) => {
+//
+//       servicefinders.push( new Promise(function(resolve, reject) {
+//          Service.findById(id).then()
+//       }));
+//     });
+//     Promise.all(servicefinders).then((data)=>{
+//       resolve(data)
+//     })
+//   });;
+//
+//
+// }
+
 app.get("/",function(req,res){
     console.log(req.query.search);
     let regex = new RegExp(req.query.search,'i');
+    console.log("regex:",regex);
     if(req.query.search){
-        ServiceProvider.find({
-            $or: [
-                {'firstname': regex},
-                {'lastname': regex},
-                {'username': regex},
-                {'address': regex},
-                {'profession': regex},
-            ]
-        }).populate("servicesProviding").exec(function(err,data){
-            if(err){
-                console.log(err);
+      Service.find({
+          $or: [
+              {'appliance': regex},
+              {'description': regex},
+          ]
+      }).then((dataa)=>{
+        var promises = [];
+        console.log('dataa:', dataa);
+        if(dataa){
+          console.log('line: 130');
+          console.log(dataa);
+
+          dataa.forEach((service, i) => {
+            service.provider.forEach((providerid, i) => {
+              promises.push(
+                new Promise(function(resolve, reject) {
+                  ServiceProvider.findById(providerid).populate('servicesProviding').exec((err, data)=>{
+                    resolve(data);
+                  })
+                })
+              )
+
+            });
+          });
+        }
+
+        promises.push(
+          new Promise(function(resolve, reject) {
+            ServiceProvider.find({
+              $or: [
+                  {'firstname': regex},
+                  {'lastname': regex},
+                  {'username': regex},
+                  {'address': regex},
+                  {'profession': regex}
+                ]
+              }).populate('servicesProviding').exec((err, data)=>{
+                resolve(data);
+              })
+            })
+          );
+        console.log('line: 131');
+        Promise.all(promises).then(function(data){
+            console.log('line: 133');
+            if(0){
+
             }
             else{
-                console.log(data);
-                res.render("searchpage",{results :data});
+                console.log('yaha',data);
+                var providers = [];
+                data.forEach((result, i) => {
+                  if(Array.isArray(result)){
+                    result.forEach((item, i) => {
+                      providers.push(item);
+                    });
+                  } else{
+                    providers.push(result);
+                  }
+                });
+                console.log('line: 149');
+              res.render("searchpage",{results :providers});
+
+
+
                 //res.redirect("/");
             }
         })
+      });
+
+
     }
     else{
         res.render("index");
@@ -128,7 +199,7 @@ app.get("/",function(req,res){
 
 app.post("/register",function(req,res){
     var newUser= new User({
-        username: req.body.username, 
+        username: req.body.username,
         firstname:req.body.firstname,
         lastname: req.body.lastname,
         address: req.body.address,
@@ -175,7 +246,7 @@ app.get("/providerloginregister",function(req,res){
 //REGISTER
 app.post("/providerregister",function(req,res){
     var newProvider= new ServiceProvider({
-        username: req.body.username, 
+        username: req.body.username,
         firstname:req.body.firstname,
         lastname: req.body.lastname,
         phone_no:req.body.phone_no,
@@ -196,7 +267,7 @@ app.post("/providerregister",function(req,res){
 app.post("/providerlogin", passport.authenticate("provider-local") ,function(req,res){
     console.log(req.user);
     res.redirect("/provider/"+req.user._id);
-    
+
 });
 //AFTER PROVIDER LOGIN-SERVICE PROVIDER PAGE
 app.get("/provider/:id",function(req,res){
@@ -236,7 +307,7 @@ app.get("/provider/:id",function(req,res){
                             new Date(a["uploadDate"]).getTime()
                           );
                         });
-                
+
                         res.render("provider-profile",{currentUser : foundProvider , files : f});
                     }
                 });
@@ -269,7 +340,7 @@ app.post("/provider/:id", upload.single('photo'),function(req,res){
         console.log("No filr rec");
     }
     else{
-    
+
         console.log(req.file.filename);
         console.log("id "+req.params.id);
         ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
@@ -286,14 +357,14 @@ app.post("/provider/:id", upload.single('photo'),function(req,res){
                 }
             }
         })
-           
+
     }
 });
 
 
 //SERVICE PROVIDER PROFILE UPDATE
 app.get("/provider/:id/edit" ,function(req,res){
-    
+
     // ServiceProvider.findById(req.params.id, function(err,foundProvider){
     ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
     if(err)
@@ -336,7 +407,7 @@ app.put("/provider/:id",function(req,res){
 // app.get("/provider/:id/addservice",function(req,res){
 //     console.log(req.params.id);
 //     // res.render("addservice",{providerId :req.params.id});
-// })   
+// })
 app.post("/provider/:id/addservice",function(req,res){
     var service = new Service({
         appliance : req.body.appliance,
@@ -382,7 +453,7 @@ app.post("/provider/:id/addservice",function(req,res){
         }
     })
 })
-// update service 
+// update service
 app.get("/provider/:id/:serviceid/edit",function(req,res){
     Service.findById(req.params.serviceid,function(err,foundservice){
         if(err){
@@ -437,4 +508,3 @@ app.delete("/provider/:id/:serviceid/delete",function(req,res){
 app.listen(8080,function(){
     console.log("Running at localhost:8080");
 })
-
