@@ -88,18 +88,18 @@
                     <nav class="site-navigation text-right " id="right-nav" role="navigation">
 
                         <ul display="inline" class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li>
-                                <!--*************************SEARCH BAR *********************
-                                <form action="/" method="GET">
-                                    <input type="text" name="search" placeholder="search the service type...">
-                                    <input type="submit" value="SUBMIT">
-                                </form>
-                                *********************************************************-->
+                            <li style="padding: 2.2rem">
+                                
+                                <form class="search-box"action="">
+                                    <input class="search-input" type="search">
+                                    <i class="fa fa-search"></i>
+                                  </form>
+                                
                             </li>
                             <!--this segment is for register,login and logout-->
                             <% if(!currentUser) { %>
                                 <!-- <a href="/register" class="nav-link">REGISTER</a> -->
-                                <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important;">LOGIN/REGISTER</a></li>
+                                <li><a href="/loginregister" class="nav-link" style="color: #35eab6 !important; top: -5rem">LOGIN/REGISTER</a></li>
 
                                 <% } else { %>
 
@@ -159,7 +159,7 @@
 
 
         <div id="ourservice-container" class="container">
-             <!--*************************SEARCH BAR *********************-->
+             <!--*************************SEARCH BAR *********************
             <form action="/" method="GET">
             <div class="input-group" style="padding-top: 20px;">
                 <input type="text" class="form-control" placeholder="Search the service" name="search" >
@@ -170,6 +170,7 @@
                 </div>
               </div>
             </form>
+            -->
             <div class="container-section-row  d-flex">
 
                 <div class="div">
