@@ -170,7 +170,7 @@ app.get("/provider",function(req,res){
 })
 //LOGIN-REGISTER
 app.get("/providerloginregister",function(req,res){
-    res.render("progressbar");
+    res.render("progressbar1");
     //res.render("provider_login_register");
 })
 //REGISTER
