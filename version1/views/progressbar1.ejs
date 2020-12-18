@@ -131,22 +131,33 @@
     </style>
   </head>
   <body>
-    <div class="main-block">
-    <form action="/">
+    <div class="account-details">
+    <form action="/providerregister" method="POST" >
       <h1>Create a free account</h1>
-      <fieldset>
+      <fieldset >
         <legend>
           <h3>Account Details</h3>
         </legend>
         <div  class="account-details">
-          <div><label>First Name *</label><input type="text" name="name" required></div>
-          <div><label>Last Name *</label><input type="password" name="name" required></div>
-          <div><label>Email *</label><input type="text" name="name" required></div>
-          <div><label>Password *</label><input type="password" name="name" required></div>
-          <div><label>Phone No *</label><input type="password" name="name" required></div>
+          <div><label>First Name *</label><input type="text" name="firstname" id="provider_fname"></div>
+          <div><label>Last Name *</label><input type="text" name="lastname" id="provider_lname"></div>
+          <div><label>Email *</label><input type="email" name="username" id="provider_email"></div>
+          <div><label>Password *</label><input type="password" name="password" id="provider_password"></div>
+          <div><label>Phone No *</label><input type="number" name="phone_no" id=provider_phone></div>
+          <div><label>Address</label><input type="text" name="address" id="provider_add"></div>
           <div>
-            <label >State</label>
-            <select class="form-control" id="user_state" autocomplete="off" name="state" placeholder="State">
+            <label >Profession</label>
+            <select class="form-control" autocomplete="off" name="profession" id="provider_prof" placeholder="Profession">
+                <option selected>Choose...</option>
+                <option>Electrician</option>
+                <option>Plumber</option>
+                <option>Carpenter</option>
+                <option>HomeSalon</option>        
+            </select>
+          </div>
+          <div>
+            <label >City</label>
+            <select class="form-control" autocomplete="off" name="city" id="provider_city" placeholder="State">
                 <option selected>Choose...</option>
                 <option>Delhi(NCR)</option>
                 <option>Hyderabad</option>
@@ -154,14 +165,19 @@
                 <option>Pune</option>        
             </select>
           </div>
-          <div><label>Pincode</label><input type="password" name="name" required></div>
+          <div><label>Pincode</label><input type="number" name="pincode" id="provider_pincode"></div>
         </div>
+        <button type="submit" >Submit</button>
       </fieldset>
-      <fieldset>
+    </form>
+
+
+    <form action="">
+      <fieldset id="2">
         <legend>
           <h3>Payment Details</h3>
         </legend>
-        <div  class="personal-details">
+        <!-- <div  class="personal-details">
           <div>
             <div><label>Name*</label><input type="text" name="name" required></div>
             <div><label>Phone*</label><input type="text" name="name" required></div>
@@ -263,8 +279,12 @@
               <div class="children"><input type="checkbox" name="name" required></div>
             </div>
           </div>
-        </div>
-      </fieldset>
+        </div>-->
+      </fieldset> 
+    
+    <button type="submit" href="/">Submit</button>
+
+    </form>
       <!-- <fieldset>
         <legend>
           <h3>Terms and Mailing</h3>
@@ -277,8 +297,8 @@
             <input type="checkbox" name="checkbox"><span>I want to recelve personallzed offers by your site</span>
           </div>
       </fieldset> -->
-      <button type="submit" href="/">Submit</button>
-    </form>
-    </div> 
+    
+    </div>
+    
   </body>
 </html>

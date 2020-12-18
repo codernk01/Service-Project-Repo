@@ -181,7 +181,9 @@ app.post("/providerregister",function(req,res){
         lastname: req.body.lastname,
         phone_no:req.body.phone_no,
         address:req.body.address,
-        profession : req.body.profession
+        profession : req.body.profession,
+        city : req.body.city,
+        pincode : req.body.pincode
         });
     ServiceProvider.register(newProvider,req.body.password,function(err,serviceprovider){
         if(err){

@@ -11,12 +11,15 @@ var serviceProviderSchema = new mongoose.Schema({
     password: String,
     profession : String,
     imgsrc : String,
+    city : String,
+    pincode : Number,
     servicesProviding :[
         {
             type : mongoose.Schema.Types.ObjectId,
             ref : "Service",
         }
     ],
+
 });
 
 serviceProviderSchema.plugin(passportLocalMongoose);
