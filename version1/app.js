@@ -151,7 +151,7 @@ app.post("/register",function(req,res){
 
 app.get("/loginregister",function(req,res){
     //console.log("Ams");
-    res.render("progressbar");
+    res.render("login_register");
 });
 
 app.post("/login", passport.authenticate("local") ,function(req,res){
@@ -201,6 +201,7 @@ app.post("/providerlogin", passport.authenticate("provider-local") ,function(req
     res.redirect("/provider/"+req.user._id);
     
 });
+
 //AFTER PROVIDER LOGIN-SERVICE PROVIDER PAGE
 app.get("/provider/:id",function(req,res){
     ServiceProvider.findById(req.params.id).populate("servicesProviding").exec(function(err,foundProvider){
@@ -267,6 +268,7 @@ app.get("/image/:filename", (req, res) => {
     });
     return file;
 });
+
 app.post("/provider/:id", upload.single('photo'),function(req,res){
     if(!req.file){
         console.log("No filr rec");
