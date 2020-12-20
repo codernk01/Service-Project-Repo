@@ -114,7 +114,7 @@ app.get("/",function(req,res){
             }
             else{
                 console.log(data);
-                res.render("searchpage",{results :data});
+                res.render("search-result",{results :data});
                 //res.redirect("/");
             }
         })

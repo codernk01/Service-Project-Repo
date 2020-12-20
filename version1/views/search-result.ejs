@@ -67,12 +67,16 @@
                 </div>
             </div>
         </header>
+        <%if(results){%>
+             
         <main>
+            
+                
             <div class=" profile-section container">
                 <div class="k4axS"><div class="_19Aso">
                     <div class="_2LB31">
                         <div class="_3IrNP">
-                            <div class="BZR3j">31 Electricians</div>
+                            <div class="BZR3j"><%= results.profession%></div>
                             <div class="_3Ynv-">
                                     <div class="_2-ofZ _3hfyI">Featured</div>
                                     <div class="_2-ofZ">Price</div>
@@ -87,13 +91,25 @@
                         </div>
                     </div>
                 </div>
+
+                <% results.forEach(function(result){%>
+                    <!-- <ul>SERVICES PROVIDING : <%result.servicesProviding.forEach(function(s){%>
+                        <ul><%=s.appliance%>  </ul>
+                        <ul><%=s.description%>  </ul>
+                        <ul><%=s.price%>  </ul>
+                        <ul>*********************</ul>
+                    <%})%> 
+                    </ul>
+                    <ul>NAME : <%= result.firstname%> <%= result.lastname %></ul>
+                    <ul>ADDRESS : <%= result.address%></ul>
+                    <ul>EMAIL :<%= result.username%></ul>
+                    <ul>PROFESSIOON :<%= result.profession%></ul>
+                    <hr> -->
                 <div id="ourservice-container" class="container" style="box-shadow: 0 8px 26px 0 rgba(255, 255, 255, 0.5) !important; top: -1rem;">
                     <div class="container-section-row  d-flex">
         
                         <div class="row serve-card">
-        
-                
-                            <div class="col-5 serve-card-image">
+                               <div class="col-5 serve-card-image">
                                 <img src="images/indiaelectricals.jpg">
                                 <div class="serve-card-buton">
                                     <button type="button" class="btn btn-danger">Book Now</button>
@@ -101,41 +117,23 @@
                                 </div>
                             </div>
                             <div class="col-7 serve-card-content">
-                                <h2 >India Electricals</h2>
+                                <h2 ><%= result.firstname%> <%= result.lastname %></h2>
                                 <button type="button" id="star-btn"class="btn btn-success"><i class="fas fa-star"></i> 4.5</button>
                                 <p>(288 reveiws)</p>
-                                <p>I.P. Colony,Faridabad,Haryana</p>
+                                <p><%= result.address%></p>
                                 <p>Timings: 10a.m - 11p.m </p>
-                                <h4 style="color: black !important;"><strong>Rs.200</strong></h4>
+                                <ul>SERVICES PROVIDING : <%result.servicesProviding.forEach(function(s){%>
+                                    <ul><%=s.appliance%>  </ul>
+                                    <ul><%=s.description%>  </ul>
+                                    <ul><%=s.price%>  </ul>
+                                    <ul>*********************</ul>
+                                <%})%> 
+                                </ul>
+                                <!--<h4 style="color: black !important;"><strong>Rs.200</strong></h4> -->
                             </div>
-        
-                    
                         </div>
         
-                        <div class="row serve-card">
-                            <div class="col-5 serve-card-image">
-                                <img src="images/indiaelectricals.jpg">
-                                <div class="serve-card-buton">
-                                    <button type="button" class="btn btn-danger">Book Now</button>
-                                    <button type="button" class="btn btn-warning">Add to Cart</button>
-                                </div>
-                            </div>
-                            <div class="col-7 serve-card-content">
-                                <h2>India Electricals</h2>
-                                <button type="button" id="star-btn"class="btn btn-success"><i class="fas fa-star"></i> 4.5</button>
-                                <p>(288 reveiws)</p>
-                                <p>I.P. Colony,Faridabad,Haryana</p>
-                                <p>Timings: 10a.m - 11p.m </p>
-                                <h4><strong>Rs.200</strong></h4>
-                        </div>
-        
-                    </div>
-                    </div>
-                    <div class="container-section-row  d-flex">
-        
-                        <div class="row serve-card">
-        
-                
+                        <!-- <div class="row serve-card">
                             <div class="col-5 serve-card-image">
                                 <img src="images/indiaelectricals.jpg">
                                 <div class="serve-card-buton">
@@ -150,77 +148,106 @@
                                 <p>I.P. Colony,Faridabad,Haryana</p>
                                 <p>Timings: 10a.m - 11p.m </p>
                                 <h4><strong>Rs.200</strong></h4>
-                            </div>
-        
-                    
-                        </div>
-        
-                        <div class="row serve-card">
-                            <div class="col-5 serve-card-image">
-                                <img src="images/indiaelectricals.jpg">
-                                <div class="serve-card-buton">
-                                    <button type="button" class="btn btn-danger">Book Now</button>
-                                    <button type="button" class="btn btn-warning">Add to Cart</button>
-                                </div>
-                            </div>
-                            <div class="col-7 serve-card-content">
-                                <h2>India Electricals</h2>
-                                <button type="button" id="star-btn"class="btn btn-success"><i class="fas fa-star"></i> 4.5</button>
-                                <p>(288 reveiws)</p>
-                                <p>I.P. Colony,Faridabad,Haryana</p>
-                                <p>Timings: 10a.m - 11p.m </p>
-                                <h4><strong>Rs.200</strong></h4>
-                        </div>
+                        </div> -->
         
                     </div>
-                    </div>
-                    <div class="container-section-row  d-flex">
-        
-                        <div class="row serve-card">
-        
-                
-                            <div class="col-5 serve-card-image">
-                                <img src="images/indiaelectricals.jpg">
-                                <div class="serve-card-buton">
-                                    <button type="button" class="btn btn-danger">Book Now</button>
-                                    <button type="button" class="btn btn-warning">Add to Cart</button>
-                                </div>
-                            </div>
-                            <div class="col-7 serve-card-content">
-                                <h2>India Electricals</h2>
-                                <button type="button" id="star-btn"class="btn btn-success"><i class="fas fa-star"></i> 4.5</button>
-                                <p>(288 reveiws)</p>
-                                <p>I.P. Colony,Faridabad,Haryana</p>
-                                <p>Timings: 10a.m - 11p.m </p>
-                                <h4><strong>Rs.200</strong></h4>
-                            </div>
-        
-                    
-                        </div>
-        
-                        <div class="row serve-card">
-                            <div class="col-5 serve-card-image">
-                                <img src="images/indiaelectricals.jpg">
-                                <div class="serve-card-buton">
-                                    <button type="button" class="btn btn-danger">Book Now</button>
-                                    <button type="button" class="btn btn-warning">Add to Cart</button>
-                                </div>
-                            </div>
-                            <div class="col-7 serve-card-content">
-                                <h2>India Electricals</h2>
-                                <button type="button" id="star-btn"class="btn btn-success"><i class="fas fa-star"></i> 4.5</button>
-                                <p>(288 reveiws)</p>
-                                <p>I.P. Colony,Faridabad,Haryana</p>
-                                <p>Timings: 10a.m - 11p.m </p>
-                                <h4><strong>Rs.200</strong></h4>
-                        </div>
-        
-                    </div>
-                    
                 </div>
+                    <!--<div class="container-section-row  d-flex">
+        
+                        <div class="row serve-card">
+        
+                
+                            <div class="col-5 serve-card-image">
+                                <img src="images/indiaelectricals.jpg">
+                                <div class="serve-card-buton">
+                                    <button type="button" class="btn btn-danger">Book Now</button>
+                                    <button type="button" class="btn btn-warning">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="col-7 serve-card-content">
+                                <h2>India Electricals</h2>
+                                <button type="button" id="star-btn"class="btn btn-success"><i class="fas fa-star"></i> 4.5</button>
+                                <p>(288 reveiws)</p>
+                                <p>I.P. Colony,Faridabad,Haryana</p>
+                                <p>Timings: 10a.m - 11p.m </p>
+                                <h4><strong>Rs.200</strong></h4>
+                            </div>
+        
+                    
+                        </div>
+        
+                        <div class="row serve-card">
+                            <div class="col-5 serve-card-image">
+                                <img src="images/indiaelectricals.jpg">
+                                <div class="serve-card-buton">
+                                    <button type="button" class="btn btn-danger">Book Now</button>
+                                    <button type="button" class="btn btn-warning">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="col-7 serve-card-content">
+                                <h2>India Electricals</h2>
+                                <button type="button" id="star-btn"class="btn btn-success"><i class="fas fa-star"></i> 4.5</button>
+                                <p>(288 reveiws)</p>
+                                <p>I.P. Colony,Faridabad,Haryana</p>
+                                <p>Timings: 10a.m - 11p.m </p>
+                                <h4><strong>Rs.200</strong></h4>
+                        </div>
+        
+                    </div>
+                    </div>
+                    <div class="container-section-row  d-flex">
+        
+                        <div class="row serve-card">
+        
+                
+                            <div class="col-5 serve-card-image">
+                                <img src="images/indiaelectricals.jpg">
+                                <div class="serve-card-buton">
+                                    <button type="button" class="btn btn-danger">Book Now</button>
+                                    <button type="button" class="btn btn-warning">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="col-7 serve-card-content">
+                                <h2>India Electricals</h2>
+                                <button type="button" id="star-btn"class="btn btn-success"><i class="fas fa-star"></i> 4.5</button>
+                                <p>(288 reveiws)</p>
+                                <p>I.P. Colony,Faridabad,Haryana</p>
+                                <p>Timings: 10a.m - 11p.m </p>
+                                <h4><strong>Rs.200</strong></h4>
+                            </div>
+        
+                    
+                        </div>
+        
+                        <div class="row serve-card">
+                            <div class="col-5 serve-card-image">
+                                <img src="images/indiaelectricals.jpg">
+                                <div class="serve-card-buton">
+                                    <button type="button" class="btn btn-danger">Book Now</button>
+                                    <button type="button" class="btn btn-warning">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="col-7 serve-card-content">
+                                <h2>India Electricals</h2>
+                                <button type="button" id="star-btn"class="btn btn-success"><i class="fas fa-star"></i> 4.5</button>
+                                <p>(288 reveiws)</p>
+                                <p>I.P. Colony,Faridabad,Haryana</p>
+                                <p>Timings: 10a.m - 11p.m </p>
+                                <h4><strong>Rs.200</strong></h4>
+                        </div>
+        
+                    </div> 
+                    
+                </div>-->
         
             </div>
+
+            
         </main>
+        <%})%>
+            <% } else { %>
+                <h2> NO SEARCH RESULTS </h2>
+            <% } %>
     </div>
 </body>
 </html>
