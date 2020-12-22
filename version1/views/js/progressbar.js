@@ -17,3 +17,7 @@ $(".st4").click(function() {
 $("ul li").click(function() {
     $(this).addClass("active").siblings().removeClass("active");
 })
+
+$("form button").click(function(){
+    $("ul li").addClass("active").siblings().removeClass("active");
+})
