@@ -15,6 +15,7 @@
         <input type="radio" name="bright" class="settings">
         <input type="radio" name="bright" class="posts">
         <input type="radio" name="bright" class="books">
+
         <div class="head">
             <ul class="nav">
                 <li class="st st1 active"></li>
@@ -27,10 +28,11 @@
                 <span></span>
             </div>
         </div>
+
         <div class="content">
             <section class="profile-section">
                 <h1> Personal Info </h1>
-                <form action="/register" method="POST">
+                <form >
 
                     <div class="form-row">
                         <div class="form-group col-6">
@@ -41,11 +43,11 @@
                             <label for="formGroupExampleInput">Last Name</label>
                             <input type="text" class="form-control" id="user_lname" autocomplete="off" name="lastname" placeholder="Enter Last Name" >
                         </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-6" style="padding-top: 25px;">
                             <label for="formGroupExampleInput">Email</label>
                             <input type="text" class="form-control" id="user_email" autocomplete="off" name="username" placeholder="Enter Email" >
                         </div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-6" style="padding-top: 25px;">
                             <label for="formGroupExampleInput">Password</label>
                             <input type="password" class="form-control" id="user_[pass]" autocomplete="off" name="password" placeholder="Enter Password" >
                         </div>
@@ -53,10 +55,10 @@
 
                     <br>
 
-                    <!-- <div class="form-group ">
+                    <div class="form-group ">
                         <label for="Address">Address</label>
                         <textarea class="form-control" rows="4" id="user_add" autocomplete="off" name="address" placeholder="Enter Your Address"></textarea>
-                    </div> -->
+                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="inputCity">City</label>
@@ -82,15 +84,68 @@
                         <p>ANSHU</p>
                     </div> -->
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+                
+            </section>
+
+            <section class="settings-section">
+                <h1>Payment-method</h1>
+                <form>
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="formGroupExampleInput">First Name</label>
+                            <input type="text" class="form-control" id="user_fname" autocomplete="off" name="firstname" placeholder="Enter First Name" >
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="formGroupExampleInput">Last Name</label>
+                            <input type="text" class="form-control" id="user_lname" autocomplete="off" name="lastname" placeholder="Enter Last Name" >
+                        </div>
+                        <div class="form-group col-6" style="padding-top: 25px;">
+                            <label for="formGroupExampleInput">Email</label>
+                            <input type="text" class="form-control" id="user_email" autocomplete="off" name="username" placeholder="Enter Email" >
+                        </div>
+                        <div class="form-group col-6" style="padding-top: 25px;">
+                            <label for="formGroupExampleInput">Password</label>
+                            <input type="password" class="form-control" id="user_[pass]" autocomplete="off" name="password" placeholder="Enter Password" >
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group ">
+                        <label for="Address">Address</label>
+                        <textarea class="form-control" rows="4" id="user_add" autocomplete="off" name="address" placeholder="Enter Your Address"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="user_city" autocomplete="off" name="city" placeholder="City">
+                        </div>
+                        <div class="form-group col-md-4" style="margin-left:10px;">
+                            <label for="inputState">State</label>
+                            <select class="form-control" id="user_state" autocomplete="off" name="state" placeholder="State">
+                      <option selected>Choose...</option>
+                      <option>Delhi(NCR)</option>
+                      <option>Gujarat</option>
+                      <option>Rajasthan</option>
+                      <option>Uttar Pradesh</option>        
+                    </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputZip">Pincode</label>
+                            <input type="text" class="form-control" id="user_pin" autocomplete="off" name="pincode" placeholder="Pnicode">
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <p>ANSHU</p>
+                    </div> -->
+
+                    <button type="submit" class="btn btn-primary">Next</button>
                 </form>
             </section>
 
-            
-            <section class="settings-section">
-                <h1>Payment-method</h1>
-
-            </section>
             <section class="posts-section">
                 <span><i class="fas fa-house-user"></i></span>
                 <h1>posts-SECTION</h1>
@@ -98,12 +153,63 @@
                     asperiores vero quos?
                 </p>
             </section>
+
             <section class="books-section">
                 <span><i class="fas fa-house-user"></i></span>
                 <h1>terms and conditions</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo adipisci perspiciatis doloremque dolores nisi eligendi praesentium vitae voluptatem voluptas tempora molestiae, voluptatum iusto facilis! Corrupti necessitatibus voluptatibus
-                    asperiores vero quos?
-                </p>
+                <form action="/register" method="POST">
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="formGroupExampleInput">First Name</label>
+                            <input type="text" class="form-control" id="user_fname" autocomplete="off" name="firstname" placeholder="Enter First Name" >
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="formGroupExampleInput">Last Name</label>
+                            <input type="text" class="form-control" id="user_lname" autocomplete="off" name="lastname" placeholder="Enter Last Name" >
+                        </div>
+                        <div class="form-group col-6" style="padding-top: 25px;">
+                            <label for="formGroupExampleInput">Email</label>
+                            <input type="text" class="form-control" id="user_email" autocomplete="off" name="username" placeholder="Enter Email" >
+                        </div>
+                        <div class="form-group col-6" style="padding-top: 25px;">
+                            <label for="formGroupExampleInput">Password</label>
+                            <input type="password" class="form-control" id="user_[pass]" autocomplete="off" name="password" placeholder="Enter Password" >
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group ">
+                        <label for="Address">Address</label>
+                        <textarea class="form-control" rows="4" id="user_add" autocomplete="off" name="address" placeholder="Enter Your Address"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="user_city" autocomplete="off" name="city" placeholder="City">
+                        </div>
+                        <div class="form-group col-md-4" style="margin-left:10px;">
+                            <label for="inputState">State</label>
+                            <select class="form-control" id="user_state" autocomplete="off" name="state" placeholder="State">
+                      <option selected>Choose...</option>
+                      <option>Delhi(NCR)</option>
+                      <option>Gujarat</option>
+                      <option>Rajasthan</option>
+                      <option>Uttar Pradesh</option>        
+                    </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputZip">Pincode</label>
+                            <input type="text" class="form-control" id="user_pin" autocomplete="off" name="pincode" placeholder="Pnicode">
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <p>ANSHU</p>
+                    </div> -->
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </section>
         </div>
 
