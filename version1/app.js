@@ -11,6 +11,8 @@ var multer= require("multer");
 const providerRoutes = require('./routes/provider');
 const userAuthRoutes = require('./routes/userAuth');
 const providerAuthRoutes = require('./routes/providerAuth');
+var Razorpay=require("razorpay");
+const shortid = require("shortid")
 
 var app = express();
 
@@ -63,8 +65,47 @@ app.get("/",function(req,res){
 
 //ROUTES
 app.use('/', userAuthRoutes)
+
 app.use('/',providerAuthRoutes)
 app.use('/', providerRoutes)
+
+const razorpay = new Razorpay({
+    key_id: 'rzp_test_M6RUbvov2eQ4ve', // your `KEY_ID`
+    key_secret: 'kkmEXfBb4u0FhcFWq7tnUAJr' // your `KEY_SECRET`
+  })
+
+app.get('/payment', function(req,res){
+    res.render("PaymentPage");
+});
+
+app.post('/razorpay', async (req, res) => {
+	const payment_capture = 1
+	const amount = 4
+	const currency = 'INR'
+
+	const options = {
+		amount: amount * 100,
+		currency,
+		receipt: shortid.generate(),
+		payment_capture
+	}
+
+	try {
+		const response = await razorpay.orders.create(options)
+        console.log(response);
+        console.log("------");
+		res.json({
+			id: response.id,
+			currency: response.currency,
+			amount: response.amount
+        })
+        //console.log(res);
+	} catch (error) {
+		console.log("error");
+	}
+})
+
+
 
 app.listen(8080,function(){
     console.log("Running at localhost:8080");

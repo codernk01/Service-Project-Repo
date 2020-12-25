@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Payment Gateway</h1>
+<button onclick="myFunction()">Pay</button>
+
+<p id="demo"></p>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+async function myFunction() {
+    document.getElementById("demo").innerHTML = "Hello World";
+    const data = await fetch('http://localhost:8080/razorpay', { method: 'POST' }).then((t) =>
+			t.json()
+		)
+		console.log(data)
+            
+    console.log("done--");
+    console.log(data);
+    var options = {
+        "currency" : data.currency,
+        "amount" : data.amount.toString(),
+        "order_id" : data.id,
+        "key": "rzp_test_M6RUbvov2eQ4ve", // Enter the Key ID generated from the Dashboard
+        "name": "TUDU",
+        "description": "Test Transaction",
+        //"image": "https://example.com/your_logo",
+        "handler": function (response){
+            alert(response.razorpay_payment_id);
+            alert(response.razorpay_order_id);
+            alert(response.razorpay_signature)
+        },
+        "prefill": {
+            "name": "Shah Sharma",
+            "email": "gaurav.kumar@example.com",
+            "contact": "9999999999"
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+    console.log(options);
+    const rzp1 = new window.Razorpay(options)
+    rzp1.open();
+}
+        
+</script>
+
+</body>
+</html>
+
