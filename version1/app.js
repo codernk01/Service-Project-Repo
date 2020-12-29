@@ -39,24 +39,68 @@ app.get("/",function(req,res){
     console.log(req.query.search);
     let regex = new RegExp(req.query.search,'i');
     if(req.query.search){
-        ServiceProvider.find({
+        Service.find({
             $or: [
-                {'firstname': regex},
-                {'lastname': regex},
-                {'username': regex},
-                {'address': regex},
-                {'profession': regex},
+                {'appliance': regex},
+                {'description': regex},
             ]
-        }).populate("servicesProviding").exec(function(err,data){
-            if(err){
-                console.log(err);
+        }).then((dataa)=>{
+          var promises = [];
+          //console.log('dataa:', dataa);
+          if(dataa){ 
+            //console.log(dataa);
+            dataa.forEach((service, i) => {
+              service.provider.forEach((providerid, i) => {
+                promises.push(
+                  new Promise(function(resolve, reject) {
+                    ServiceProvider.findById(providerid).populate('servicesProviding').exec((err, data)=>{
+                      resolve(data);
+                    })
+                  })
+                )
+  
+              });
+            });
+          }
+  
+          promises.push(
+            new Promise(function(resolve, reject) {
+              ServiceProvider.find({
+                $or: [
+                    {'firstname': regex},
+                    {'lastname': regex},
+                    {'username': regex},
+                    {'address': regex},
+                    {'profession': regex}
+                  ]
+                }).populate('servicesProviding').exec((err, data)=>{
+                  resolve(data);
+                })
+              })
+            );
+         
+          Promise.all(promises).then(function(data){
+              
+              if(0){
+  
             }
             else{
-                console.log(data);
-                res.render("search-result",{results :data});
-                //res.redirect("/");
+                //console.log(data);
+                var providers = [];
+                data.forEach((result, i) => {
+                  if(Array.isArray(result)){
+                    result.forEach((item, i) => {
+                      providers.push(item);
+                    });
+                  } else{
+                    providers.push(result);
+                  }
+                });
+                
+              res.render("search-result",{results :providers});
             }
         })
+    });
     }
     else{
         res.render("index");
